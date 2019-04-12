@@ -1,3 +1,25 @@
+<?php
+    include "DbConn.php";
+    if(isset($_POST['submit']))
+    {
+        //get details from the form
+        $id = "";
+        $order = $DbConn->real_escape_string($_REQUEST["product"]);
+        $quantity = $DbConn->real_escape_string($_REQUEST["quantity"]);
+                 
+        //query
+        $sql = "INSERT INTO Orders () VALUES ('$id','$order','$quantity')";
+        if($DbConn->query($sql) === true){
+            echo "<script language='javascript'>
+                alert ('Thank you for making an order!');
+            </script>";
+        } 
+        else{
+            echo "ERROR: Could not able to execute $sql. " . $DbConn->error;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -70,7 +92,6 @@
                                     <label for="search" class="">Search Here...</label>
                                 </div>
                                 <button class="btn pink search-button waves-effect waves-light" type="submit"><i class="material-icons">&#xE8B6;</i></button>
-                                
                             </form>
                         </div>
                     </div><!-- /.search-wrapper -->
@@ -115,12 +136,30 @@
         </header>
         <!--header end-->
 
+        
         <section class="section-padding">
-            <div class="container">
-              <div class="text-center mb-80">
-                  <h2 class="section-title">ORDER ONLINE</h2>
-              </div>
+          <div class="container center">
+            <div class="col-xs-12 col-sm-12 col-md-12 blog-grid-item mb-30">
+              <article class="card ptb-30 padding">
+                      <h2 class="entry-title activator">ORDER ONLINE</h2><hr>
+                      <form action="Order.php" method="POST" class="ptb-30">
+                        <fieldset>
+                          <div class="input-container">
+                            <input type="text" id="product" required="required" placeholder="Product" autocomplete="off" />
+                            <div class="bar"></div>
+                          </div>
+                          <div class="input-container">
+                            <input type="text" id="quantity" required="required" placeholder="Quantity" autocomplete="off" />
+                            <div class="bar"></div>
+                          </div>
+                          <div class="button-container">
+                            <button type="submit" class="btn btn green btn-block">Order</button>
+                          </div>
+                        </fieldset>
+                      </form>
+              </article>
             </div>
+          </div>
         </section>
 
        <!--footer 4 start -->
