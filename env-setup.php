@@ -52,3 +52,13 @@ switch (ENVIRONMENT) {
 
 $dotenv=Dotenv\Dotenv::create(__DIR__); 
 $dotenv->load(); 
+
+define('BASE_URL', getenv('BASEPATH')); 
+define('ASSETS_URL', BASE_URL.'/assets');
+
+// Paths
+define('BASEPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+define('ASSETS_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR);
+define('INC_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.'inc'.DIRECTORY_SEPARATOR);
+
+define('DS', DIRECTORY_SEPARATOR);
