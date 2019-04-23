@@ -1083,6 +1083,13 @@ thead {
     background-size: cover !important;
 }
 
+.main-banner {
+    background: url("assets/img/banner/banner-main.jpg") no-repeat center center;
+    background-size: cover;
+    background-position: 50% 98%;
+    height: 100vh; 
+}
+
 .banner-1 {
     background-image: url("assets/img/banner/banner-1.jpg");  
 }
