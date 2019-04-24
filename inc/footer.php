@@ -1,6 +1,6 @@
 				<!--footer 4 start -->
 				<footer class="footer footer-four">
-				<div class="primary-footer brand-bg text-center">
+				<div class="primary-footer text-center">
 						<div class="container">
 
 							<a href="#top" class="page-scroll btn-floating btn-large aquamarine back-top waves-effect waves-light tt-animate btt" data-section="#top">
@@ -10,7 +10,7 @@
 							<div class="row">
 								<div class="col-md-12">
 											<div class="footer-logo">
-												<img src="<?= ASSETS_URL?>/img/klogo.png" alt="">
+												<img src="<?= ASSETS_URL?>/img/logos/kuguru-dark.png" alt="">
 											</div>
 
 											<span style="color: black;">Copyright &copy; 2019</span>

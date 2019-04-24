@@ -834,12 +834,12 @@ Responsive Menu
 
     .menuzord-menu>li>a, 
     .tt-nav.sticky .menuzord-menu>li>a {
-        padding: 0 5px;
+        /* padding: 0 5px; */
     }
 
-    .menuzord-menu>li>a {
-        font-size: 13px;
-    }
+    /* .menuzord-menu>li>a {
+        /* font-size: 18px;
+    } */
 }
 
   

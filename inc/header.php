@@ -29,6 +29,7 @@
         <link href="<?= BASE_URL?>/style.css" rel="stylesheet">
         <!-- Custon CSS -->
         <link href="<?= ASSETS_URL?>/css/custom.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/css/custom-utility.min.css" rel="stylesheet">
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -41,7 +42,7 @@
 
     <body id="top">
 			<!--header start-->
-			<header id="header" class="tt-nav transparent-header">
+			<header id="header" class="tt-nav">
 
 				<div class="header-sticky light-header">
 					<div class="container">
@@ -49,13 +50,12 @@
 
 									<!--logo start-->
 									<a href="<?= BASE_URL?>/index.html" class="logo-brand">
-											<img class="logo-dark" src="<?= ASSETS_URL?>/img/klogo.png" alt=""/>
-											<img class="logo-light" src="<?= ASSETS_URL?>/img/klogo.png" alt="" />
+										<img class="logo-dark" src="<?= ASSETS_URL?>/img/logos/kuguru-dark.png" alt=""/>
 									</a>
 									<!--logo end-->
 
 									<!--mega menu start-->
-									<ul class="menuzord-menu pull-right light">
+									<ul class="menuzord-menu pull-right">
 											<li><a href="<?= BASE_URL?>">Home</a></li>
 
 											<li><a href="<?= BASE_URL?>/pages/about.php">About Us</a></li>
