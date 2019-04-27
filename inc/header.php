@@ -25,6 +25,7 @@
         <link href="<?= ASSETS_URL?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- shortcodes -->
         <link href="<?= ASSETS_URL?>/css/shortcodes/shortcodes.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/css/shortcodes/login.css" rel="stylesheet">
         <!-- Style CSS -->
         <link href="<?= BASE_URL?>/style.css" rel="stylesheet">
         <!-- Custon CSS -->

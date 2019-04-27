@@ -156,37 +156,39 @@
       </div><!-- /.container -->
   </section>
 
-  <section class="section-padding">
+  <section class="section-padding gray-bg">
       <div class="container">
 
-        <h2 class="text-bold text-capitalize mb-30">We are serving since 2003</h2>
         <div class="row">
           <div class="col-md-7">
-            
-            <p>Duis senectus mus condimentum nunc ac habitasse duis consectetur a arcu a accumsan cras et metus ultricies justo cum a bibendum. <strong><a href="#">Egestas vestibulum blandit sem vestibulum curabitur</a></strong> a vel aliquet gravida ullamcorper amet dictumst vestibulum a elementum proin id volutpat magna parturient. Id ac dui libero a ullamcorper euismod himenaeos a nam condimentum a adipiscing dapibus lobortis iaculis morbi.</p>
+            <section class="section">
+              <div class="container ">
 
-            <p class="no-margin">Himenaeos a vestibulum morbi. <strong><a href="#">Ullamcorper cras scelerisque</a></strong> taciti lorem metus feugiat est lacinia facilisis id nam leo condimentum praesent id diam. Vestibulum amet porta odio elementum convallis parturient tempor tortor tempus a mi ad parturient ad nulla mus amet in penatibus nascetur at vulputate euismod a est tristique scelerisque. Aliquet facilisis nisl vel vestibulum dignissim gravida ullamcorper.</p>
+                <div class="login-wrapper">
+                  <div class="card-wrapper"></div>
+                  <div class="card-wrapper">
+                    <h1 class="title">ORDER ONLINE</h1>
+                    <form method="post" action="">
+                      <div class="input-container">
+                        <input type="text" id="username" placeholder="Product" required="required"/>
+                        <div class="bar"></div>
+                      </div>
+                      <div class="input-container">
+                        <input type="password" id="password" placeholder="Quantity" required="required"/>
+                        <div class="bar"></div>
+                      </div>
+                      <div class="button-container">
+                        <a href="#." class="btn btn-lg btn-block waves-effect waves-light">ORDER</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </section>          
           </div><!-- /.col-md-7 -->
-
-          <div class="col-md-5 mt-sm-50">
-            <div class="gallery-thumb">
-              <ul class="slides">
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/5.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/5.jpg" alt="image">
-                </li>
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/6.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/6.jpg" alt="image">
-                </li>
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/3.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/3.jpg" alt="image">
-                </li>
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/4.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/4.jpg" alt="image">
-                </li>
-              </ul>
-            </div><!-- /.gallery-thumb -->
-          </div><!-- /.col-md-5 -->
         </div><!-- /.row -->
+
       </div><!-- /.container -->
   </section>
 <?php require_once INC_PATH.'footer.php';?>
