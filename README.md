@@ -14,6 +14,9 @@ A revamp of their [company website](http://kuguru.com) in an attempt to understa
 ### Environment variables
 
 In the root folder there is a file **.env-example** copy it and rename name the new file **.env**. Change the variables to reflect your machine configurations.
+For the assets to load correctly ensure you set your BASEPATH.
+
+```BASEPATH = http://localhost/project-folder```
 
 Ensure you have composer installed. Go to your terminal/cmd in the project root directory and enter the following command ```composer install``` to install the required php libraries.
 
