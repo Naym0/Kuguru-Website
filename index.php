@@ -7,7 +7,7 @@
 		<div class="container d-flex justify-content-center">
 			<div class="text-center hero-text-wrapper">
 				<p class="white-text mb-3">Commitment to excellence in service and quality products to uplift and empower Kenya and its people</p>
-				<button class="btn btn-info btn-lg waves-effect waves-light">
+				<button class="btn brand-bg btn-lg waves-effect waves-light">
 					Learn more
 				</button>
 			</div>

@@ -153,7 +153,6 @@ hr {
     font-size: 16px;
     line-height: 26px;
     border-radius: 2px;
-    background-color: #207c2f; /*brand primary color*/
     border: 0;
 }
 
@@ -168,10 +167,6 @@ hr {
         font-size: 14px;
         padding: 8px 25px;
     }
-}
-
-.btn:hover{
-    background-color: #0e570b;
 }
 
 .btn.active, 
