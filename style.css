@@ -75,7 +75,7 @@ body {
 /* Link style
 /* ------------------------------ */
 a {
-    color: #ed145b;
+    color: #12b189;
 }
 a,
 a > * {
@@ -85,9 +85,9 @@ a > * {
 }
 a:focus,
 a:hover {
-    color: #00664d;
+    color: #4de97c;
     outline: none;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 

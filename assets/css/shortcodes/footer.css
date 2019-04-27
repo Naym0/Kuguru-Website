@@ -4,9 +4,9 @@ Footer
 .footer h2 {
     margin-bottom: 24px;
 }
-.footer p {
-    color: #c9f0ff;
-}
+/* .footer p {
+    color: #0e6d49 !important;
+} */
 
 .footer-one .primary-footer {
     padding-top: 80px;
