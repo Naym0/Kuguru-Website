@@ -85,9 +85,9 @@ a > * {
 }
 a:focus,
 a:hover {
-    color: #4de97c;
+    color: #65CCB7;
     outline: none;
-    text-decoration: underline;
+    text-decoration: underline ;
 }
 
 
@@ -688,7 +688,7 @@ thead {
 }
 
 .brand-hover:hover {
-	background-color: #00664d !important; /*theme primary hover color*/
+	background-color: #00664d  !important; /*theme primary hover color #26a69a*/
 }
 
 

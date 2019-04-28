@@ -3,10 +3,10 @@
   if(isset($_POST['btn-submit'])){
     //get details from the form
     $id = "";
-    $order = $DbConn->real_escape_string($_REQUEST["product"]);
-    $quantity = $DbConn->real_escape_string($_REQUEST["quantity"]);
+    $order = $DbConn->real_escape_string($_REQUEST['product']);
+    $quantity = $DbConn->real_escape_string($_REQUEST['quantity']);
     //query
-    $sql = "INSERT INTO Orders () VALUES ('$id','$order','$quantity')";
+    $sql = "INSERT INTO Orders (Order_id,Product,Quantity) VALUES ('$id','$order','$quantity')";
     if($DbConn->query($sql) === true){
         echo "<script language='javascript'>
             alert ('Thank you for making an order!');
@@ -109,17 +109,17 @@
               <div class="card-wrapper"></div>
               <div class="card-wrapper">
                 <h1 class="title">ORDER ONLINE</h1>
-                <form method="post" action="">
+                <form method="post" action="orders.php">
                   <div class="input-container">
-                    <input type="text" id="username" placeholder="Product" required="required"/>
+                    <input type="text" name="product" placeholder="Product" required="required"/>
                     <div class="bar"></div>
                   </div>
                   <div class="input-container">
-                    <input type="password" id="password" placeholder="Quantity" required="required"/>
+                    <input type="text" name="quantity" placeholder="Quantity" required="required"/>
                     <div class="bar"></div>
                   </div>
                   <div class="button-container">
-                    <a href="#." class="btn btn-lg btn-block waves-effect waves-light">ORDER</a>
+                    <button class="btn btn-lg btn-block waves-effect waves-light" name="btn-submit">ORDER</button>
                   </div>
                 </form>
               </div>
