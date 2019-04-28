@@ -50,7 +50,7 @@
 							<div id="materialize-menu" class="menuzord">
 
 									<!--logo start-->
-									<a href="<?= BASE_URL?>/index.html" class="logo-brand">
+									<a href="<?= BASE_URL?>" class="logo-brand">
 										<img class="logo-dark" src="<?= ASSETS_URL?>/img/logos/kuguru-dark.png" alt=""/>
 									</a>
 									<!--logo end-->

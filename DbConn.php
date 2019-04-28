@@ -1,5 +1,5 @@
 <?php
-	require_once('./env-setup.php');
+	require_once('env-setup.php');
 	//Database connection details
 	$host= getenv('DB_HOST'); 
 	$username=getenv('DB_USER'); 
