@@ -2249,3 +2249,21 @@ KEY FRAME
         margin-top: 6px;
     }
 }
+.latest-news-card .card-reveal.overlay-blue{
+    background-color: #00664d;
+}
+
+.brand-dot.owl-theme .owl-dots .owl-dot.active span, .brand-dot.owl-theme .owl-dots .owl-dot:hover span {
+    background-color: #00664d;   
+}
+
+.brand-icon{
+    color: #00664d;
+}
+
+#kuguru{
+    height: 270px;
+    position: relative;
+    top: 4em;
+    border-radius: 3px;
+}
