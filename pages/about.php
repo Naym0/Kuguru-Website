@@ -16,7 +16,7 @@
                   <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="card">
                       <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../assets/img/AboutUs/ourMission.jpg" alt="image">
+                        <img class="activator" src="<?= ASSETS_URL;?>/img/AboutUs/ourMission.jpg" alt="image">
                       </div>
                       <div class="card-content">
                         <h2 class="entry-title activator">OUR MISSION</h2>
@@ -34,7 +34,7 @@
                   <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="card">
                       <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../assets/img/AboutUs/products.jpg" alt="image">
+                        <img class="activator" src="<?= ASSETS_URL;?>/img/AboutUs/products.jpg" alt="image">
                       </div>
                       <div class="card-content">
                         <h2 class="entry-title activator">PRODUCT MISSION</h2>
@@ -52,7 +52,7 @@
                   <div class="col-xs-12 col-sm-6 col-md-4">
                     <article class="card">
                       <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../assets/img/AboutUs/stakeholders.jpg" alt="image">
+                        <img class="activator" src="<?= ASSETS_URL;?>/img/AboutUs/stakeholders.jpg" alt="image">
                       </div>
                       <div class="card-content">
                         <h2 class="entry-title activator">STAKEHOLDERS MISSION</h2>
@@ -103,7 +103,7 @@
                   <div class="gallery-thumb">
                     <ul class="slides">
                       <!--<li data-thumb="assets/img/blog/5.jpg">-->
-                        <img src="../assets/img/AboutUs/Kuguru.jpg" alt="image" id="kuguru">
+                        <img src="<?= ASSETS_URL;?>/img/AboutUs/Kuguru.jpg" alt="image" id="kuguru">
                       </li>
                     </ul>
                   </div>
