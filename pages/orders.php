@@ -1,12 +1,12 @@
 <?php
-  require_once "DbConn.php";
+  require_once "../DbConn.php";
   if(isset($_POST['btn-submit'])){
     //get details from the form
     $id = "";
-    $order = $DbConn->real_escape_string($_REQUEST["product"]);
-    $quantity = $DbConn->real_escape_string($_REQUEST["quantity"]);
+    $order = $DbConn->real_escape_string($_REQUEST['product']);
+    $quantity = $DbConn->real_escape_string($_REQUEST['quantity']);
     //query
-    $sql = "INSERT INTO Orders () VALUES ('$id','$order','$quantity')";
+    $sql = "INSERT INTO Orders (Order_id,Product,Quantity) VALUES ('$id','$order','$quantity')";
     if($DbConn->query($sql) === true){
         echo "<script language='javascript'>
             alert ('Thank you for making an order!');
@@ -31,31 +31,30 @@
         <title>Orders</title>
 
         <!--  favicon -->
-        <link rel="shortcut icon" href="assets/img/favicon.jpg">
-        <!--  apple-touch-icon -->
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/img/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="<?= ASSETS_URL?>/img/favicon.jpg">
 
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,700,900' rel='stylesheet' type='text/css'>
         <!-- Material Icons CSS -->
-        <link href="assets/fonts/iconfont/material-icons.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/fonts/iconfont/material-icons.css" rel="stylesheet">
         <!-- FontAwesome CSS -->
-        <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <!-- owl.carousel -->
-        <link href="assets/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
-        <link href="assets/owl.carousel/assets/owl.theme.default.min.css" rel="stylesheet">
-        <!-- flexslider -->
-        <link href="assets/flexSlider/flexslider.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
+				<link href="<?= ASSETS_URL?>/owl.carousel/assets/owl.theme.default.min.css" rel="stylesheet">
+				<!-- flexslider -->
+        <link href="<?= ASSETS_URL?>/flexSlider/flexslider.css" rel="stylesheet">
         <!-- materialize -->
-        <link href="assets/materialize/css/materialize.min.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/materialize/css/materialize.min.css" rel="stylesheet">
         <!-- Bootstrap -->
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- shortcodes -->
-        <link href="assets/css/shortcodes/shortcodes.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/css/shortcodes/shortcodes.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/css/shortcodes/login.css" rel="stylesheet">
         <!-- Style CSS -->
-        <link href="style.css" rel="stylesheet">
+        <link href="<?= BASE_URL?>/style.css" rel="stylesheet">
+        <!-- Custon CSS -->
+        <link href="<?= ASSETS_URL?>/css/custom.css" rel="stylesheet">
+        <link href="<?= ASSETS_URL?>/css/custom-utility.min.css" rel="stylesheet">
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -70,138 +69,145 @@
 
         <!--header start-->
         <header id="header" class="tt-nav transparent-header">
-
             <div class="header-sticky light-header">
-
-                <div class="container">
-
-                    <div class="search-wrapper">
-                        <div class="search-trigger pull-right">
-                            <div class='search-btn'></div>
-                            <i class="material-icons">&#xE8B6;</i>
-                        </div>
-
-                        <!-- Modal Search Form -->
-                        <i class="search-close material-icons">&#xE5CD;</i>
-                        <div class="search-form-wrapper">
-                            <form action="#" class="white-form">
-                                <div class="input-field">
-                                    <input type="text" name="search" id="search">
-                                    <label for="search" class="">Search Here...</label>
-                                </div>
-                                <button class="btn pink search-button waves-effect waves-light" type="submit"><i class="material-icons">&#xE8B6;</i></button>
-                            </form>
-                        </div>
-                    </div><!-- /.search-wrapper -->
-                
+                <div class="container">    
                     <div id="materialize-menu" class="menuzord">
 
                         <!--logo start-->
                         <a href="index.html" class="logo-brand">
-                            <img src="assets/img/klogo.png" alt=""/>
+                            <img src="<?= ASSETS_URL?>/img/logos/kuguru-dark.png" alt="">
                         </a>
                         <!--logo end-->
 
                         <!--mega menu start-->
-                        <ul class="menuzord-menu pull-right ">
-                            <li><a href="index.html">Home</a></li>
+                        <ul class="menuzord-menu pull-right">
+                          <li><a href="<?= BASE_URL?>">Home</a></li>
 
-                            <li><a href="AboutUs.html">About Us</a></li>
+                          <li><a href="<?= BASE_URL?>/pages/about.php">About Us</a></li>
 
-                            <li><a href="javascript:void(0)">Pages</a>
-                                <ul class="dropdown">
-                                  <li><a href="#">Softa Bottling Company</a>
-                                    <ul class="dropdown">
-                                      <li><a href="Softa.html">About</a></li>
-                                      <li><a href="Orders.html">Order Online</a></li>
-                                      <li><a href="Distribution.html">Distribution</a></li>
-                                    </ul>
-                                  </li>
-  
-                                  <li><a href="Just_Real.html">Just Real Estate</a>
-                                  <li><a href="Cateress.html">Cateress Miling Company</a>
-                                    
-                                </ul>
-                            </li>
-
-                            <li><a href="Contact.html">Contact Us</a></li>
-                        </ul>
+                          <li><a href="javascript:void(0)">Services</a>
+                            <ul class="dropdown">
+                              <li><a href="<?= BASE_URL?>/pages/softa.php">Softa Bottling Company</a>
+                              <li><a href="<?= BASE_URL?>/pages/cateress.php">Cateress Milling Company</a>
+                              <li><a href="<?= BASE_URL?>/pages/just_real.php">Just Real Estate</a>
+                            </ul>
+                          </li>
+                          <li><a href="<?= BASE_URL?>/pages/contact.php">Contact Us</a></li>
+                      </ul>
                             <!--mega menu end-->
 
                     </div>
                 </div>
             </div>
-        </header>
+        </header><br><br><br>
         <!--header end-->
 
-        
-        <section class="section-padding">
-          <div class="container center">
-            <div class="col-xs-12 col-sm-12 col-md-12 blog-grid-item mb-30">
-              <article class="card ptb-30 padding">
-                      <h2 class="entry-title activator">ORDER ONLINE</h2><hr>
-                      <form method="POST" class="ptb-30">
-                        <fieldset>
-                          <div class="input-container">
-                            <input type="text" id="product" required="required" placeholder="Product" autocomplete="off" />
-                            <div class="bar"></div>
-                          </div>
-                          <div class="input-container">
-                            <input type="text" id="quantity" required="required" placeholder="Quantity" autocomplete="off" />
-                            <div class="bar"></div>
-                          </div>
-                          <div class="button-container">
-                            <button type="submit" class="btn btn green btn-block" name="btn-submit">Order</button>
-                          </div>
-                        </fieldset>
-                      </form>
-              </article>
+        <section class="section gray-bg">
+          <div class="container mt-30">
+
+            <div class="login-wrapper">
+              <div class="card-wrapper"></div>
+              <div class="card-wrapper">
+                <h1 class="title">ORDER ONLINE</h1>
+                <form method="post" action="orders.php">
+                  <div class="input-container">
+                    <input type="text" name="product" placeholder="Product" required="required"/>
+                    <div class="bar"></div>
+                  </div>
+                  <div class="input-container">
+                    <input type="text" name="quantity" placeholder="Quantity" required="required"/>
+                    <div class="bar"></div>
+                  </div>
+                  <div class="button-container">
+                    <button class="btn btn-lg btn-block waves-effect waves-light" name="btn-submit">ORDER</button>
+                  </div>
+                </form>
+              </div>
             </div>
+
           </div>
-        </section>
+        </section>          
 
-       <!--footer 4 start -->
-       <footer class="footer footer-four">
-        <div class="primary-footer brand-bg text-center">
-            <div class="container">
+			<!--footer 1 start -->
+			<footer class="footer footer-one">
+				<div class="primary-footer custom-brand-bg">
+						<div class="container">
+								<a href="#top" class="page-scroll btn-floating btn-large back-top waves-effect waves-light tt-animate btt" data-section="#top">
+									<i class="material-icons">&#xE316;</i>
+								</a>
 
-              <a href="#top" class="page-scroll btn-floating btn-large aquamarine back-top waves-effect waves-light tt-animate btt" data-section="#top">
-                <i class="material-icons">&#xE316;</i>
-              </a>
+								<div class="row">
+										<div class="col-md-4 widget clearfix">
+											<div class="footer-logo">
+												<img src="<?= ASSETS_URL?>/img/logos/kuguru-dark.png" alt="">
+											</div>
+											<p class="mt-3 text-white">
+												A family owned business founded by Mr. Peter Kuguru in 1988 and has
+												had experience in mass-market beverage manufacturing and distribution since 1992.
+												In an effort to diversify, KFCL now has several subsidiaries such as Softa Bottling Company,
+												Cateress Milling and Just Real Estate.
+											</p>
 
-              <div class="row">
-                <div class="col-md-12">
-                      <div class="footer-logo">
-                        <img src="assets/img/klogo.png" alt="">
-                      </div>
+												<ul class="social-link tt-animate ltr">
+													<li><a title="Follow us on Facebook" href="#"><i class="fa fa-2x fa-facebook"></i></a></li>
+													<li><a title="Follow us on Twitter" href="#"><i class="fa fa-2x fa-twitter"></i></a></li>
+													<li><a title="Mail to info@kuguru.com" href="mailto:info@kugur.com"><i class="fa fa-2x fa-envelope"></i></a></li>
+												</ul>
+										</div><!-- /.col-md-3 -->
 
-                      <span style="color: black;">Copyright &copy; 2019</span>
-                      <div class="footer-intro">
-                        <p>Kuguru Food Complex Limited<br>PO Box 47343-00100 Nbi Kenya<br>Email: info@kuguru.com</p>
-                      </div>
-                </div><!-- /.col-md-12 -->
-              </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.primary-footer -->
-    </footer>
-    <!--footer 4 end-->
+										<div class="col-md-4 widget">
+												<h2 class="white-text">Imporant links</h2>
 
-        <!-- jQuery -->
-        <script src="assets/js/jquery-2.1.3.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/materialize/js/materialize.min.js"></script>
-        <script src="assets/js/menuzord.js"></script>
-        <script src="assets/js/jquery.easing.min.js"></script>
-        <script src="assets/js/jquery.sticky.min.js"></script>
-        <script src="assets/js/smoothscroll.min.js"></script>
-        <script src="assets/js/jquery.stellar.min.js"></script>
-        <script src="assets/js/imagesloaded.js"></script>
-        <script src="assets/js/jquery.inview.min.js"></script>
-        <script src="assets/js/jquery.shuffle.min.js"></script>
-        <script src="assets/owl.carousel/owl.carousel.min.js"></script>
-        <script src="assets/flexSlider/jquery.flexslider-min.js"></script>
-        <script src="assets/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
+												<ul class="footer-list">
+														<li><a href="<?= BASE_URL.'/pages/about.php';?>">About us</a></li>
+														<li><a href="<?= BASE_URL.'/pages/softa.php';?>">Softa Bottling Company</a></li>
+														<li><a href="<?= BASE_URL.'/pages/cateress.php';?>">Cateress Milling Company</a></li>
+														<li><a href="<?= BASE_URL.'/pages/just_real.php';?>">Just Real Estate</a></li>
+														<li><a href="#">Terms &amp; Condition</a></li>
+														<li><a href="#">Privacy Policy</a></li>
+														<li><a href="<?= BASE_URL.'/pages/contact.php';?>">Contact Us</a></li>
+												</ul>
+										</div><!-- /.col-md-3 -->
+
+										<div class="col-md-4 widget">
+												<h2 class="white-text">Join our newsletter for updates</h2>
+
+												<form>
+													<div class="form-group clearfix">
+														<label class="sr-only" for="subscribe">Email address</label>
+														<input type="email" class="form-control" id="subscrib" placeholder="Email address">
+														<button type="submit" class="tt-animate ltr"><i class="fa fa-long-arrow-right"></i></button>
+													</div>
+												</form>
+										</div><!-- /.col-md-3 -->
+								</div><!-- /.row -->
+						</div><!-- /.container -->
+				</div><!-- /.primary-footer -->
+
+				<div class="secondary-footer custom-brand-bg darken-2">
+						<div class="container">
+								<span class="copy-text">Copyright &copy; 2019 <a href="<?= BASE_URL?>">Kuguru Food Complex Limited</a> &nbsp;  | &nbsp;  All Rights Reserved &nbsp;</span>
+						</div><!-- /.container -->
+				</div><!-- /.secondary-footer -->
+			</footer>
+			<!--footer 1 end-->
+
+			<!-- jQuery -->
+			<script src="<?= ASSETS_URL?>/js/jquery-2.1.3.min.js"></script>
+			<script src="<?= ASSETS_URL?>/bootstrap/js/bootstrap.min.js"></script>
+			<script src="<?= ASSETS_URL?>/materialize/js/materialize.min.js"></script>
+			<script src="<?= ASSETS_URL?>/js/menuzord.js"></script>
+			<script src="<?= ASSETS_URL?>/js/jquery.easing.min.js"></script>
+			<script src="<?= ASSETS_URL?>/js/jquery.sticky.min.js"></script>
+			<!-- <script src="<?= ASSETS_URL?>/js/smoothscroll.min.js"></script> -->
+			<script src="<?= ASSETS_URL?>/js/jquery.stellar.min.js"></script>
+			<script src="<?= ASSETS_URL?>/js/imagesloaded.js"></script>
+			<script src="<?= ASSETS_URL?>/js/jquery.inview.min.js"></script>
+			<script src="<?= ASSETS_URL?>/js/jquery.shuffle.min.js"></script>
+			<script src="<?= ASSETS_URL?>/js/bootstrap-tabcollapse.min.js"></script>
+			<script src="<?= ASSETS_URL?>/owl.carousel/owl.carousel.min.js"></script>
+			<script src="<?= ASSETS_URL?>/flexSlider/jquery.flexslider-min.js"></script>
+			<script src="<?= ASSETS_URL?>/magnific-popup/jquery.magnific-popup.min.js"></script>
+			<script src="<?= ASSETS_URL?>/js/scripts.js"></script>
     </body>
-  
 </html>

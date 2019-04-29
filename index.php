@@ -84,8 +84,8 @@
 				</div>
 				<div class="desc">
 					<h2>Real Estate</h2>
-					<p>The company is also involved in minor real estate leasing and sale. In the branch of the company named Just Real.</p><br>
-					<a href="<?= BASE_URL?>/pages/contact.php">Read More -></a><br><br><br>
+					<p>The company is also involved in minor real estate leasing and sale. In the branch of the company named Just Real.</p><br><br><br>
+					<a href="<?= BASE_URL?>/pages/contact.php">Read More -></a>
 				</div>
 			</div><!-- /.featured-item -->
 			</div><!-- /.col-md-4 -->
