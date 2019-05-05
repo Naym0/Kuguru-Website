@@ -5,7 +5,7 @@
   $page_title = '';
 ?>
 <?php require_once INC_PATH.'header.php';?>
-<section class="section-padding">
+<section class="section mt-40">
             <div class="container">
               <div class="text-center mb-80">
                   <h2 class="section-title">ABOUT US</h2>
@@ -19,7 +19,7 @@
                         <img class="activator" src="<?= ASSETS_URL;?>/img/AboutUs/ourMission.jpg" alt="image">
                       </div>
                       <div class="card-content">
-                        <h2 class="entry-title activator">OUR MISSION</h2>
+                        <h2 class="entry-title activator">MISSION STATEMENT</h2>
                       </div>
                       <div class="card-reveal overlay-blue">
                         <span class="card-title close-button"><i class="fa fa-times"></i></span>

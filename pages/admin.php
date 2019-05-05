@@ -3,13 +3,10 @@
   if(isset($_POST['btn-submit'])){
     //get details from the form
     $id = "";
-    $name = $DbConn->real_escape_string($_REQUEST['name']);
-    $email = $DbConn->real_escape_string($_REQUEST['email']);
     $order = $DbConn->real_escape_string($_REQUEST['product']);
     $quantity = $DbConn->real_escape_string($_REQUEST['quantity']);
-    $date = $DbConn->real_escape_string($_REQUEST['date']);
     //query
-    $sql = "INSERT INTO Orders (Order_id,Name,Email,Product,Quantity,Collection_date) VALUES ('$id','$name','$email','$order','$quantity','$date')";
+    $sql = "INSERT INTO orders (Order_id,Product,Quantity) VALUES ('$id','$order','$quantity');";
     if($DbConn->query($sql) === true){
         echo "<script language='javascript'>
             alert ('Thank you for making an order!');
@@ -31,7 +28,7 @@
         <meta name="keywords" content="material design, card style, material template, portfolio, corporate, business, creative, agency">
         <meta name="author" content="trendytheme.net">
 
-        <title>Orders</title>
+        <title>Received Orders</title>
 
         <!--  favicon -->
         <link rel="shortcut icon" href="<?= ASSETS_URL?>/img/favicon.jpg">
@@ -106,45 +103,37 @@
         <!--header end-->
 
         <section class="section gray-bg">
-          <div class="container mt-30">
+          <div class="container mt-30 table-responsive">
 
-          <h3>Online orders are only available for the main branch in Nairobi. Coming soon to other branches.</h3><br>
+            <h2>ORDERS RECEIVED</h2>
 
-            <div class="login-wrapper">
-              <div class="card-wrapper"></div>
-              <div class="card-wrapper">
-                <h1 class="title">ORDER ONLINE</h1>
-                <form method="post" action="orders.php">
-                  <div class="input-container">
-                  <label>Name</label><br>
-                    <input type="text" name="name" required="required"/>
-                    <div class="bar"></div>
-                  </div>
-                  <div class="input-container">
-                  <label>Email</label><br>
-                    <input type="text" name="email" required="required"/>
-                    <div class="bar"></div>
-                  </div>
-                  <div class="input-container">
-                  <label>Product</label><br>
-                    <input type="text" name="product" required="required"/>
-                    <div class="bar"></div>
-                  </div>
-                  <div class="input-container">
-                  <label>Quantity in Crates</label><br>
-                    <input type="text" name="quantity" required="required"/>
-                    <div class="bar"></div>
-                  </div>
-                  <div class="input-container">
-                    <label>Collection date</label><br>
-                    <input type="date" name="date" required="required"/>
-                  </div>
-                  <div class="button-container">
-                    <button class="btn btn-lg btn-block waves-effect waves-light" name="btn-submit">PLACE ORDER</button>
-                  </div>
-                </form>
-              </div>
-            </div>
+            <table class="table table-hover table-bordered" id="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Collection Date</th>
+                    </tr>
+                </thead>
+                <tbody>                      
+                    <?php        
+                            $sql = "SELECT * FROM orders;";
+                            $query =$DbConn->query($sql);
+                                    
+                            if ($query == true) 
+                            {
+                                // output data of each row
+                                while($row = $query->fetch_array()) 
+                                {
+                                echo "<tr><td>". $row["Order_id"]. "</td><td>". $row["Name"]. "</td><td>". $row["Email"]. "</td><td>". $row["Product"]. "</td><td>". $row["Quantity"]."</td><td>". $row["Collection_date"]. "</td>";
+                                }
+                            }
+                    ?>
+                </tbody>
+            </table><br><br>
 
           </div>
         </section>          
@@ -202,8 +191,8 @@
 												</form>
 										</div><!-- /.col-md-3 -->
 								</div><!-- /.row -->
-						</div><!-- /.container -->
-				</div><!-- /.primary-footer -->
+						</div>
+				</div>
 
 				<div class="secondary-footer custom-brand-bg darken-2">
 						<div class="container">
