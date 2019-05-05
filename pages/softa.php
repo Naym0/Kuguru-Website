@@ -84,7 +84,7 @@
       <div class="col-md-12">
           <div class="promo-info">
               <span class=" text-uppercase">Want to start selling softa drinks? </span>
-              <h2 class="text-bold text-uppercase no-margin">Make use of our <span class="brand-color">large distribution network</span> and be part of the success</h2>
+              <h2 class="text-bold text-uppercase no-margin">Make use of our <span class="brand-color"><a href="softa_distribution.php">large distribution network</a></span> and be part of the success</h2>
           </div>
           <div class="promo-btn">
               <a href="<?= BASE_URL?>/pages/orders.php" class="btn white waves-effect waves-grey">ORDER NOW</a>
