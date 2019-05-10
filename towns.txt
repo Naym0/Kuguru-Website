@@ -1,32 +1,32 @@
-Distributors available:
-Nairobi
-Magadi
-Narok
-Machakos
-Mtito Andei
-Voi
-Mombasa
-Garissa
-Mwingi
-Bomet
-Isiolo
-Meru
-Embu
-Nanyuki
-Nyeri
-Nakuru
-Nyahururu Falls
-Thika
-Kabarnet
+Distributors available & their co-ordinates (latitude, longitude):
+Nairobi -1.2832533,36.8172449
+Magadi -1.90049,36.28679999999997
+Narok -1.08901,35.868799999999965
+Machakos -1.52125,37.26610000000005
+Mtito Andei -2.68932,38.16820000000007
+Voi -3.3954568,38.5880588
+Mombasa -4.0390146,39.648391
+Garissa -0.45671,39.640499999999974
+Mwingi -0.9333,38.066599999999994
+Bomet -0.7184578,35.2391248
+Isiolo 0.35,37.58330000000001
+Meru 0.0500034,37.64999999999998
+Embu -0.53767,37.45839999999998
+Nanyuki 0.01403,37.07460000000003
+Nyeri -0.419296,36.95170000000007
+Nakuru -0.2833,36.066599999999994
+Nyahururu Falls 0.0333,36.36660000000006
+Thika -1.036648,37.077523
+Kabarnet 0.496524,35.743139
 
 Not yet available:
-Malindi
-Lamu
-Garsen
-Mado Gashi
-Kisumu
-Sabatia
-Kitale
-Eldoret
+Malindi -3.2166,40.11660000000006
+Lamu -2.270329,40.9002732
+Garsen -2.26774,40.11079999999993
+Mado Gashi 0.7333,39.16660000000002
+Kisumu -0.1029109,34.7541761
+Sabatia 0.229582,34.52430000000004
+Kitale 1.01808,35.00019999999995
+Eldoret 0.519833,35.27150000000006
 
 
