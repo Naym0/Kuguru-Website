@@ -83,9 +83,11 @@ class Auth extends CI_Controller
 		}
 	}
 
-	function reset_password($token_id)
+	function reset_password($token_id=null)
 	{
 		try {
+			if(empty($token)) redirect(base_url('auth/login'), 'location');
+			
 			$this->tokens_model->invalidate_expired_tokens();
 			$token = $this->tokens_model->get_token($token_id);
 			if (empty($token)) throw new \Exception("Invalid token provided");
