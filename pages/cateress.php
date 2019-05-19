@@ -2,191 +2,88 @@
 
 <!--  page specific config -->
 <?php 
-  $page_title = '';
+  $page_title = 'Cateress Milling Company';
 ?>
 <?php require_once INC_PATH.'header.php';?>
-  <section class="section-padding">
-      <div class="container">
-        <div class="text-center mb-80">
-            <h2 class="section-title">Cateress Milling Company</h2>
-        </div>
+  <!--page title start-->
+  <section class="page-title no-bg page-title-center ptb-90">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="<?= ASSETS_URL?>/img/logos/cateress.png" alt="">
+      </div>
+    </div>
+  </section>
+  <!--page title end-->
 
-        <div class="row latest-news-card">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <article class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="<?= ASSETS_URL?>/img/blog/blog-18.jpg" alt="image">
-                </div>
-                <div class="card-content">
-                  <h2 class="entry-title activator">OUR MISSION</h2>
-                </div>
-                <div class="card-reveal overlay-blue">
-                  <span class="card-title close-button"><i class="fa fa-times"></i></span>
-                  <h2 class="entry-title"><a href="#">Material Design is best</a></h2>
-                  <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services quality.</p>
-                </div>
-              </article><!-- /.card -->
+  <!-- Featured Flat Border -->
+  <section class="pb-100">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="featured-item flat-border-box">
+                    <div class="icon">
+                      <img src="<?= ASSETS_URL?>/img/icons/wheat.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <h2>Our Product</h2>
+                        <p>
+                          The Cateress Milling Company (KFCL's milling company) produces high quality first grade sifted maize flour, otherwise known as "Cateress". Cateress milling uses both Swiss and Italian technology to separate the 1st quality flour into 2 distinct brands.
+                        </p>
+
+                        <p>
+                          <span class="text-primary">MPISHI</span> is the flagship brand that is very popular throughout the greater Nairobi area extending into Central, Rift Valley and Eastern provinces.
+                        </p>
+                        <p>
+                        <span class="text-primary">CATERESS</span> the richest and finest of the two flour brands, is specially prepared in its own dedicated mill. The mill is capable of producing an unrivaled quality of maize flour, due to the mills single floor design and specialized fluting of the rolls. Cateress mainly impacts the Nairobi City area and can be found in all Uchumi's and most major Nairobi super-markets.
+                        </p>
+                    </div>
+                </div><!-- /.featured-item -->
             </div><!-- /.col-md-4 -->
 
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <article class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="<?= ASSETS_URL?>/img/blog/1.jpg" alt="image">
-                </div>
-                <div class="card-content">
-                  <h2 class="entry-title activator">PRODUCT MISSION</h2>
-                </div>
-                <div class="card-reveal overlay-blue">
-                  <span class="card-title close-button"><i class="fa fa-times"></i></span>
-                  <h2 class="entry-title"><a href="#">How To Be More Organized</a></h2>
-                  <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services quality.</p>
-                </div>
-              </article><!-- /.card -->
+            <div class="col-md-6">
+                <div class="featured-item flat-border-box">
+                    <div class="icon">
+                      <img src="<?= ASSETS_URL?>/img/icons/technology.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <h2>The Technology</h2>
+                        <p>
+                        The Cateress Milling Company owns and operates 2 separate mills: <br>
+                        <span class="text-primary">Italian made</span> which is used to produce the high-end CATERESS brand. 
+                        Roncanglia, the Italian makers of this mill have a very well known and respected name throughout the milling community.
+                        <br>
+                        <span class="text-primary">Swiss made</span>, which is the main mill producing the MPISHI brand. Buhler AG, the makers of the mill, are the unprecedented leaders in milling machinery and technology. 
+                        Buhler (East Africa) works closely with KFCL, offering technical advice, quality control and continued preventative maintenance. 
+                        KFCL's Buhler mill is the only mill of its kind throughout all of East Africa, having the highest <span class="text-primary" title="The highest capacity with the fewest amount of machinery">output/machinery ratio</span>. 
+                        For those who know milling, they would be shocked to discover that KFCL's 
+                        Buhler mill operates at very high extraction rates, has a relatively large capacity with the use of only one roller-mill and does not even utilize a purifier. 
+                        </p>
+                    </div>
+                </div><!-- /.featured-item -->
             </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+        
+      </div><!-- /.container -->
+  </section>
+  <!-- Featured Flat Border End -->
 
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <article class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="<?= ASSETS_URL?>/img/blog/3.jpg" alt="image">
-                </div>
-                <div class="card-content">
-                  <h2 class="entry-title activator">STAKEHOLDERS MISSION</h2>
-                </div>
-                <div class="card-reveal overlay-blue">
-                  <span class="card-title close-button"><i class="fa fa-times"></i></span>
-                  <h2 class="entry-title"><a href="#">Exploring the Product Design7</a></h2>
-                  <p>Authoritatively grow quality technologies for strategic sources. Dramatically evolve front-end services quality.</p>S
-                </div>
-              </article><!-- /.card -->
-            </div><!-- /.col-md-4 -->
+  <section class="quote-box custom-brand-bg darken-2 ptb-90" data-stellar-background-ratio="0.1">
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="text-center">
+            <span class="text-uppercase white-text quote-intro">What do people say</span>
+            <h1 class="text-bold white-text mb-30">"Kuguru Foods Complex Limited's mill is Buhler's show piece for East Africa"</h1>
+            <p class="author white-text"> <span class="role">Buhler East Africa's Managing Director</span></p>
         </div>
       </div>
+    </div>
   </section>
 
-  <section class="section-padding banner-6 bg-fixed parallax-bg overlay light-9"data-stellar-background-ratio="0.5">
-      <div class="container">
-
-        <div class="text-center mb-50">
-            <h2 class="section-title">What We Do</h2>
-            <p class="section-sub">Quisque non erat mi. Etiam congue et augue sed tempus. Aenean sed ipsum luctus, scelerisque ipsum nec, iaculis justo. Sed at vestibulum purus, sit amet viverra diam nulla ac nisi rhoncus.</p>
-        </div>
-
-        <div class="featured-carousel brand-dot">
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE32A;</i>
-                </div>
-                <div class="desc">
-                    <h2>Business Consulting</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE851;</i>
-                </div>
-                <div class="desc">
-                    <h2>Consumer Consulting</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE8AF;</i>
-                </div>
-                <div class="desc">
-                    <h2>Financial Department</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE91D;</i>
-                </div>
-                <div class="desc">
-                    <h2>Travel & Transport</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE8CB;</i>
-                </div>
-                <div class="desc">
-                    <h2>Lawyer Cases</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE8DC;</i>
-                </div>
-                <div class="desc">
-                    <h2>Stocks And Trading</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE02C;</i>
-                </div>
-                <div class="desc">
-                    <h2>Business Strategies</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-
-            <div class="featured-item border-box radius-4 hover brand-hover">
-                <div class="icon mb-30">
-                    <i class="material-icons brand-icon">&#xE0BE;</i>
-                </div>
-                <div class="desc">
-                    <h2>Business Solutions</h2>
-                    <p>Porttitor communicate pandemic data rather than enabled niche pandemic data rather markets neque pulvinar vitae.</p>
-                </div>
-            </div><!-- /.featured-item -->
-        </div>
-
-      </div><!-- /.container -->
+  <section class="pb-100 pt-100 gray-bg"> 
+    <div class="d-flex justify-content-center align-items-center">
+      <img src="<?= ASSETS_URL?>/img/logos/cateress_maize_meal.jpeg" alt="" class="mr-30">
+      <img src="<?= ASSETS_URL?>/img/logos/mpishi.jpeg" alt="">
+    </div>
   </section>
 
-  <section class="section-padding">
-      <div class="container">
-
-        <h2 class="text-bold text-capitalize mb-30">We are serving since 2003</h2>
-        <div class="row">
-          <div class="col-md-7">
-            
-            <p>Duis senectus mus condimentum nunc ac habitasse duis consectetur a arcu a accumsan cras et metus ultricies justo cum a bibendum. <strong><a href="#">Egestas vestibulum blandit sem vestibulum curabitur</a></strong> a vel aliquet gravida ullamcorper amet dictumst vestibulum a elementum proin id volutpat magna parturient. Id ac dui libero a ullamcorper euismod himenaeos a nam condimentum a adipiscing dapibus lobortis iaculis morbi.</p>
-
-            <p class="no-margin">Himenaeos a vestibulum morbi. <strong><a href="#">Ullamcorper cras scelerisque</a></strong> taciti lorem metus feugiat est lacinia facilisis id nam leo condimentum praesent id diam. Vestibulum amet porta odio elementum convallis parturient tempor tortor tempus a mi ad parturient ad nulla mus amet in penatibus nascetur at vulputate euismod a est tristique scelerisque. Aliquet facilisis nisl vel vestibulum dignissim gravida ullamcorper.</p>
-          </div><!-- /.col-md-7 -->
-
-          <div class="col-md-5 mt-sm-50">
-            <div class="gallery-thumb">
-              <ul class="slides">
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/5.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/5.jpg" alt="image">
-                </li>
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/6.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/6.jpg" alt="image">
-                </li>
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/3.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/3.jpg" alt="image">
-                </li>
-                <li data-thumb="<?= ASSETS_URL?>/img/blog/4.jpg">
-                  <img src="<?= ASSETS_URL?>/img/blog/4.jpg" alt="image">
-                </li>
-              </ul>
-            </div><!-- /.gallery-thumb -->
-          </div><!-- /.col-md-5 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-  </section>
 <?php require_once INC_PATH.'footer.php';?>

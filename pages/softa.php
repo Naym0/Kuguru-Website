@@ -2,7 +2,7 @@
 
 <!--  page specific config -->
 <?php 
-  $page_title = '';
+  $page_title = 'Softa Bottling Company Limited';
 ?>
 <?php require_once INC_PATH.'header.php';?>
   <!--page title start-->

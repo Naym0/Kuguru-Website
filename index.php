@@ -65,7 +65,7 @@
 			<div class="col-md-6 mb-30">
 			<div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
 				<div class="icon mb-30">
-					<i class="material-icons brand-icon"><img src="assets/img/flour1.png"></i>
+					<i class="material-icons brand-icon"><img srcateress.pngc="assets/img/flour1.png"></i>
 				</div>
 				<div class="desc">
 					<h2>Milling Company</h2>
