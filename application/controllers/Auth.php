@@ -90,7 +90,7 @@ class Auth extends CI_Controller
 			$token = $this->tokens_model->get_token($token_id);
 			if (empty($token)) throw new \Exception("Invalid token provided");
 			if (!$token['valid']) throw new \Exception("Expired token provided");
-			
+
 			if ($this->form_validation->run('reset_password') == FALSE) {
 				//? show form
 				$data = array(
@@ -115,6 +115,47 @@ class Auth extends CI_Controller
 
 	function forgot_password()
 	{
-		
+		if ($this->form_validation->run('forgot_password') == FALSE) {
+			$data = array(
+				'content' => 'auth/forgot_password'
+			);
+			$this->load->view($this->layout, $data);
+		} else {
+			$email = $this->input->post('email');
+			try {
+				$user = $this->users_model->get_user_by_email($email);
+				if (empty($user)) throw new \Exception("Email is not registered to any account");
+
+				$token = get_crypto_safe_token(random_int(25, 30));
+				$token_data = array(
+					'token' => $token,
+					'token_expiry' => 7200,
+					'user_id' => $user['user_id']
+				);
+				$token_id = $this->tokens_model->add_token($token_data);
+				if (!$token_id) throw new \Exception("Could not process request");
+
+				//? send email
+				$to = array(
+					'name' => $user['first_name'] . ' ' . $user['last_name'],
+					'email' => $user['email']
+				);
+				$subject = 'Password reset';
+				$email_data = array(
+					'subject' => $subject,
+					'reset_url' => base_url('auth/reset_password/' . $token_id),
+					'name' => $to['name']
+				);
+				$body = $this->load->view('emails/forgot_password', $email_data, true);
+				$response_code = $this->email->send_email($to, $subject, $body);
+				if ($response_code !== 202) throw new \Exception("Could not process request");
+
+				$this->session->set_flashdata('msg', ['type' => 'success', 'content' => 'A reset password token has been sent to your email address']);
+				redirect(base_url('auth/forgot_password'));
+			} catch (\Throwable $th) {
+				$this->session->set_flashdata('msg', ['type' => 'danger', 'content' => $th->getMessage()]);
+				redirect(base_url('auth/forgot_password'));
+			}
+		}
 	}
 }

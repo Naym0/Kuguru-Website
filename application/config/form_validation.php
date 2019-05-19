@@ -51,6 +51,13 @@ $config = array(
 				'match' => 'Passwords must match'
 			)
 		)
+	),
+	'forgot_password' => array(
+		array(
+			'field' => 'email',
+			'label' => 'Email',
+			'rules' => 'required|valid_email'
+		)
 	)
 
 );
