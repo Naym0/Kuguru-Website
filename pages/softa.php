@@ -84,7 +84,7 @@
       <div class="col-md-12">
           <div class="promo-info">
               <span class=" text-uppercase">Want to start selling softa drinks? </span>
-              <h2 class="text-bold text-uppercase no-margin">Make use of our <span class="brand-color"><a href="softa_distribution.php">large distribution network</a></span> and be part of the success</h2>
+              <h2 class="text-bold text-uppercase no-margin">Make use of our <span class="brand-color">large distribution network</span> and be part of the success</h2>
           </div>
           <div class="promo-btn">
               <a href="<?= BASE_URL?>/pages/orders.php" class="btn white waves-effect waves-grey">ORDER NOW</a>
@@ -93,41 +93,14 @@
     </div>
   </div>
   <!--full width promo dark box end-->
-
-
-  <!-- <section class="section-padding gray-bg">
+  
+  <section class="section-padding">
       <div class="container">
-
-        <div class="row">
-          <div class="col-md-7">
-            <section class="section">
-              <div class="container ">
-
-                <div class="login-wrapper">
-                  <div class="card-wrapper"></div>
-                  <div class="card-wrapper">
-                    <h1 class="title">ORDER ONLINE</h1>
-                    <form method="post" action="">
-                      <div class="input-container">
-                        <input type="text" id="username" placeholder="Product" required="required"/>
-                        <div class="bar"></div>
-                      </div>
-                      <div class="input-container">
-                        <input type="password" id="password" placeholder="Quantity" required="required"/>
-                        <div class="bar"></div>
-                      </div>
-                      <div class="button-container">
-                        <a href="#." class="btn btn-lg btn-block waves-effect waves-light">ORDER</a>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-
-              </div>
-            </section>          
-          </div>
+        <div class="text-center">
+          <h2 class="section-title">OUR DISTRIBUTION NETWORK </h2>
+          <h2> Scroll over the map below to find out more on our Softa distributors in the country.</h2>
+          <?php require_once INC_PATH.'map.php';?>
         </div>
-
       </div>
-  </section> -->
+  </section>
 <?php require_once INC_PATH.'footer.php';?>

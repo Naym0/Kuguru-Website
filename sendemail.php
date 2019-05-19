@@ -1,11 +1,12 @@
 <?php
-require 'PHPMailer/PHPMailerAutoload.php';
+session_start();
+require 'vendor/autoload.php';
+require 'env-setup.php';
 
 
 try {
-	$res = array();
 	$subject = strip_tags($_POST['subject']);
-	$email = strip_tags($_POST['email']);
+	$email_address = strip_tags($_POST['email']);
 	$phone = strip_tags($_POST['phone']);
 	$name = strip_tags($_POST['name']);
 	$message = nl2br(htmlspecialchars($_POST['message'], ENT_QUOTES));
@@ -15,7 +16,7 @@ try {
 		$empty .= 'Name is required<br>';
 	}
 
-	if (empty($email)) {
+	if (empty($email_address)) {
 		$empty .=  'Email is required<br>';
 	}
 
@@ -34,7 +35,7 @@ try {
 	$email_template = 'simple.html';
 	$templateTags = array(
 		'{{subject}}' => $subject,
-		'{{email}}' => $email,
+		'{{email}}' => $email_address,
 		'{{message}}' => $message,
 		'{{name}}' => $name,
 		'{{phone}}' => $phone
@@ -42,39 +43,22 @@ try {
 	$templateContents = file_get_contents(dirname(__FILE__) . '/email-templates/' . $email_template);
 	$contents = strtr($templateContents, $templateTags);
 
-	$mail = new PHPMailer;
-	// $mail->SMTPDebug = 2;
-	$mail->isSMTP();                            // Set mailer to use SMTP
-	$mail->Host = '';             // Specify main and backup SMTP servers
-	$mail->SMTPAuth = true;                     // Enable SMTP authentication
-	$mail->Username = '';   // SMTP username
-	$mail->Password = '';        // SMTP password
-	$mail->SMTPSecure = 'ssl';                  // Enable TLS encryption, `ssl` also accepted
-	$mail->Port = 465; 
-	$mail->SMTPOptions = array(
-		'ssl' => array(
-				'verify_peer' => false,
-				'verify_peer_name' => false,
-				'allow_self_signed' => true
-		)
-);
-
-
-	$mail->setFrom('noreply@events-designers.com', $name);
-	$mail->addReplyTo($email, $name);
-	$mail->addAddress('info@events-designers.com');          // Add a recipient
-
-	$mail->Subject = $subject;
-	$mail->Body    = $contents;
-	$mail->IsHTML(true); 
-
-	if (!$mail->send()) {
-		throw new \Exception('Cann\'t send message.');
-	}
-	$res = array('ok' => true, 'msg' => '<strong>Thank You!</strong>&nbsp; Your email has been delivered.');
+	$email = new \SendGrid\Mail\Mail();
+	$email->setFrom($email_address, $name);
+	$email->setSubject($subject);
+	$email->addTo('kamawanyee@gmail.com', "Kuguru Foods Complex Limited");
+	$email->addContent("text/plain", strip_tags($contents));
+	$email->addContent("text/html",	$contents);
+	$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+	
+	$response = $sendgrid->send($email);
+	$response_code = $response->statusCode();
+	
+	if($response_code !== 202) throw new \Exception("Error code($response_code) :Could not send email.");	
+	$res = array('type' => 'success', 'content' => 'Your inquiry has been sent');
 } catch (\Throwable $th) {
-	$res = array('ok' => false, 'msg' => $th->getMessage());
+	$res = array('type' => 'danger', 'content' => $th->getMessage());
 } finally {
-	echo json_encode($res);
-	die();
+	$_SESSION['msg']=$res;
+	header('Location: '.BASE_URL.'/pages/contact.php');
 }

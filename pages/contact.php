@@ -1,4 +1,6 @@
-<?php require_once '..'.DIRECTORY_SEPARATOR.'env-setup.php';?>
+<?php
+session_start();
+require_once '..'.DIRECTORY_SEPARATOR.'env-setup.php';?>
 
 <!--  page specific config -->
 <?php 
@@ -10,13 +12,19 @@
   <div class="container">
 
       <div class="text-center mb-80">
-          <h2 class="section-title text-uppercase">Contact us</h2>
-          <p class="section-sub">Have something to tell us? Just mail it to us here.</p>
+        <h2 class="section-title text-uppercase">Contact us</h2>
+        <p class="section-sub">Have something to tell us? Just mail it to us here.</p>
       </div>
+      <?php if(isset($_SESSION['msg'])): ?>
+        <div class="alert <?= $_SESSION['msg']['type'];?>-dark" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <?= $_SESSION['msg']['content'];?>
+        </div>   
+      <?php unset($_SESSION['msg']); endif;?>
 
     <div class="row">
         <div class="col-md-8">
-            <form name="contact-form" id="contactForm" action="sendemail.php" method="POST">
+            <form action="<?= BASE_URL;?>/sendemail.php" method="POST">
 
               <div class="row">
                 <div class="col-md-6">
@@ -46,8 +54,8 @@
 
                 <div class="col-md-6">
                   <div class="input-field">
-                    <input id="website" type="text" name="website" class="validate" >
-                    <label for="website">Message Subject</label>
+                    <input id="subject" type="text" name="subject" class="validate" >
+                    <label for="subject">Message Subject</label>
                   </div>
                 </div><!-- /.col-md-6 -->
               </div><!-- /.row -->
@@ -93,5 +101,4 @@
   </div>
 </section>
 <!-- contact-form-section End -->
-
 <?php require_once INC_PATH.'footer.php';?>

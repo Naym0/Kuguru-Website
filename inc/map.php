@@ -11,10 +11,10 @@
    crossorigin="">
    </script>
 
+
    <style type="text/css">
     #mapid { height: 450px;}
    </style>
-
   <title>Leaflet Map Demo</title>
 </head>
 <body>
@@ -23,11 +23,11 @@
 <script type="text/javascript">
   var mymap = L.map('mapid').setView([-0.58, 37.7], 6.5);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoiYWxsYW52aWtpcnUiLCJhIjoiY2p2aTd0cjc4MDJ4eDRicnRoMmM2OTVhMyJ9.Wi7T21jnlgzeRloqDBzduQ'
-}).addTo(mymap);
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoiYWxsYW52aWtpcnUiLCJhIjoiY2p2aTd0cjc4MDJ4eDRicnRoMmM2OTVhMyJ9.Wi7T21jnlgzeRloqDBzduQ'
+    }).addTo(mymap);
   
   //markers
   var nairobi = L.marker([-1.2832533,36.8172449]).addTo(mymap);

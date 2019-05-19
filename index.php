@@ -47,7 +47,7 @@
 
 		<div class="row equal-height-row">
 
-			<div class="col-md-4 mb-30">
+			<div class="col-md-6 mb-30">
 			<div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
 				<div class="icon mb-30">
 					<i class="material-icons brand-icon"><img src="assets/img/favicon.jpg"></i>
@@ -59,10 +59,10 @@
 					<a href="<?= BASE_URL?>/pages/softa.php">Read More -></a><br>
 				</div>
 			</div><!-- /.featured-item -->
-			</div><!-- /.col-md-4 -->
+			</div><!-- /.col-md-6 -->
 
 
-			<div class="col-md-4 mb-30">
+			<div class="col-md-6 mb-30">
 			<div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
 				<div class="icon mb-30">
 					<i class="material-icons brand-icon"><img src="assets/img/flour1.png"></i>
@@ -74,22 +74,7 @@
 					<a href="<?= BASE_URL?>/pages/cateress.php">Read More -></a>
 				</div>
 			</div><!-- /.featured-item -->
-			</div><!-- /.col-md-4 -->
-
-
-			<div class="col-md-4 mb-30">
-			<div class="featured-item border-box radius-4 hover brand-hover equal-height-column">
-				<div class="icon mb-30">
-					<i class="material-icons brand-icon"><img src="assets/img/house1.png"></i>
-				</div>
-				<div class="desc">
-					<h2>Real Estate</h2>
-					<p>The company is also involved in minor real estate leasing and sale. In the branch of the company named Just Real.</p><br><br><br>
-					<a href="<?= BASE_URL?>/pages/contact.php">Read More -></a>
-				</div>
-			</div><!-- /.featured-item -->
-			</div><!-- /.col-md-4 -->
-						
+			</div><!-- /.col-md-6 -->						
 		</div><!-- /.row -->
 
 	</div><!-- /.container -->

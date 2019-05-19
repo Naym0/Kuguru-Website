@@ -65,7 +65,6 @@
 												<ul class="dropdown">
 													<li><a href="<?= BASE_URL?>/pages/softa.php">Softa Bottling Company</a>
 													<li><a href="<?= BASE_URL?>/pages/cateress.php">Cateress Milling Company</a>
-													<li><a href="<?= BASE_URL?>/pages/just_real.php">Just Real Estate</a>
 												</ul>
 											</li>
 											<li><a href="<?= BASE_URL?>/pages/contact.php">Contact Us</a></li>
