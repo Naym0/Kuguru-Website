@@ -18,7 +18,9 @@ class Auth extends CI_Controller
 				if (empty($user)) throw new \Exception("Incorrect creditials");
 				$valid_password = password_verify($password, $user['password']);
 				if (!$valid_password) throw new \Exception("Incorrect creditials");
-				redirect(base_url('dashboard/'));
+				$user['logged_in'] = TRUE;
+				$this->session->set_userdata($user);
+				redirect(base_url('dashboard/index'));
 			} catch (\Throwable $th) {
 				$this->session->set_flashdata('msg', ['type' => 'danger', 'content' => $th->getMessage()]);
 				redirect(base_url('auth/login'));
@@ -86,7 +88,7 @@ class Auth extends CI_Controller
 	function reset_password($token_id=null)
 	{
 		try {
-			if(empty($token)) redirect(base_url('auth/login'), 'location');
+			if(empty($token_id)) redirect(base_url('auth/login'), 'location');
 			
 			$this->tokens_model->invalidate_expired_tokens();
 			$token = $this->tokens_model->get_token($token_id);
@@ -107,11 +109,11 @@ class Auth extends CI_Controller
 				if (!$updated) throw new \Exception("Could not update password");
 				$this->tokens_model->invalidate_token($token['token_id']);
 				$this->session->set_flashdata('msg', ['type' => 'success', 'content' => 'Password update successfully']);
-				redirect(base_url('auth/login'));
+				redirect(base_url('auth/login'), 'location');
 			}
 		} catch (\Throwable $th) {
 			$this->session->set_flashdata('msg', ['type' => 'danger', 'content' => $th->getMessage()]);
-			redirect(base_url('auth/login'));
+			redirect(base_url('auth/login'),'location');
 		}
 	}
 
@@ -159,5 +161,10 @@ class Auth extends CI_Controller
 				redirect(base_url('auth/forgot_password'));
 			}
 		}
+	}
+
+	function logout() {
+		session_destroy();
+		redirect(base_url('auth/login'));
 	}
 }
