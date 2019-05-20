@@ -31,8 +31,8 @@
 												<ul class="footer-list">
 														<li><a href="<?= BASE_URL.'/pages/about.php';?>">About Us</a></li>
 														<li><a href="<?= BASE_URL.'/pages/softa.php';?>">Softa Bottling Company</a></li>
+														<li><a href="<?= BASE_URL.'/pages/orders.php';?>">Order from Softa</a></li>
 														<li><a href="<?= BASE_URL.'/pages/cateress.php';?>">Cateress Milling Company</a></li>
-														<li><a href="<?= BASE_URL.'/pages/just_real.php';?>">Just Real Estate</a></li>
 														<li><a href="#">Terms &amp; Conditions</a></li>
 														<li><a href="#">Privacy Policy</a></li>
 														<li><a href="<?= BASE_URL.'/pages/contact.php';?>">Contact Us</a></li>
