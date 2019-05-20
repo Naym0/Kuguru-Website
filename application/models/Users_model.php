@@ -22,7 +22,7 @@ class Users_model extends CI_Model
 	function add_user($data)
 	{
 		$inserted = $this->db->insert('users', $data);
-		return $inserted ? $this->db->insert_id() : fale;
+		return $inserted ? $this->db->insert_id() : false;
 	}
 
 	function update_user($data, $user_id)
