@@ -1,63 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+/**
+ * head_start.php
+ *
+ * Author: pixelcave
+ *
+ * The first block of code used in every page of the template
+ *
+ */
+?>
+<!doctype html>
+<html lang="en" class="no-focus">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?= isset($page_title) && !empty($page_title) ? $page_title : 'Kuguru Food Complex Limited'; ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <!--  favicon -->
-        <link rel="shortcut icon" href="<?= base_url('assets/');?>/img/favicon.jpg">
+        <title><?php echo $cb->title; ?></title>
 
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,700,900' rel='stylesheet' type='text/css'>
-        <!-- Material Icons CSS -->
-        <link href="<?= base_url('assets');?>/fonts/iconfont/material-icons.css" rel="stylesheet">
-        <!-- FontAwesome CSS -->
-        <link href="<?= base_url('assets');?>/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- owl.carousel -->
-        <link href="<?= base_url('assets');?>/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
-				<link href="<?= base_url('assets');?>/owl.carousel/assets/owl.theme.default.min.css" rel="stylesheet">
-				<!-- flexslider -->
-        <link href="<?= base_url('assets');?>/flexSlider/flexslider.css" rel="stylesheet">
-        <!-- materialize -->
-        <link href="<?= base_url('assets');?>/materialize/css/materialize.min.css" rel="stylesheet">
-        <!-- Bootstrap -->
-        <link href="<?= base_url('assets');?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- shortcodes -->
-        <link href="<?= base_url('assets');?>/css/shortcodes/shortcodes.css" rel="stylesheet">
-        <link href="<?= base_url('assets');?>/css/shortcodes/login.css" rel="stylesheet">
-        <!-- Style CSS -->
-        <link href="<?= base_url('assets');?>" rel="stylesheet">
-        <!-- Custon CSS -->
-        <link href="<?= base_url('assets');?>/css/custom.css" rel="stylesheet">
-        <link href="<?= base_url('assets');?>/css/custom-utility.min.css" rel="stylesheet">
+        <meta name="description" content="<?php echo $cb->description; ?>">
+        <meta name="author" content="<?php echo $cb->author; ?>">
+        <meta name="robots" content="<?php echo $cb->robots; ?>">
 
+        <!-- Open Graph Meta -->
+        <meta property="og:title" content="<?php echo $cb->title; ?>">
+        <meta property="og:site_name" content="<?php echo $cb->name; ?>">
+        <meta property="og:description" content="<?php echo $cb->description; ?>">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="<?php echo $cb->og_url_site; ?>">
+        <meta property="og:image" content="<?php echo $cb->og_url_image; ?>">
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="<?php echo $cb->assets_folder; ?>/media/favicons/favicon.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="<?php echo $cb->assets_folder; ?>/media/favicons/favicon-192x192.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $cb->assets_folder; ?>/media/favicons/apple-touch-icon-180x180.png">
+        <!-- END Icons -->
 
-    <body id="top">
-			<!--header start-->
-			<header id="header" class="tt-nav">
+        <!-- Stylesheets -->
+    <!-- Fonts and Codebase framework -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,400i,600,700">
+    <link rel="stylesheet" id="css-main" href="<?php echo $cb->assets_folder; ?>/css/codebase.min.css">
 
-				<div class="header-sticky light-header">
-					<div class="container">
-							<div id="materialize-menu" class="menuzord">
-
-									<!--logo start-->
-									<a href="<?= base_url('assets/');?>" class="logo-brand">
-										<img class="logo-dark" src="<?= base_url('assets/');?>img/logos/kuguru-dark.png" alt=""/>
-									</a>
-									<!--logo end-->
-
-							</div>
-					</div>
-				</div>
-
-			</header>
-			<!--header end-->
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
+    <?php if ($cb->theme) { ?>
+    <link rel="stylesheet" id="css-theme" href="<?php echo $cb->assets_folder; ?>/css/themes/<?php echo $cb->theme; ?>.min.css">
+    <?php } ?>
+    <!-- END Stylesheets -->
+</head>
+<body>

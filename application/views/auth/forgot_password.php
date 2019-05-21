@@ -5,28 +5,57 @@
 ?>
 <?= validation_errors('<div class="alert alert-danger" >', '</div>');?>
 
-<section class="section-padding gray-bg">
-	<div class="container"><br><br>
+<!-- Page Content -->
+<div class="bg-body-dark bg-pattern" style="background-image: url('<?php echo $cb->assets_folder; ?>/media/various/bg-pattern-inverse.png');">
+    <div class="row mx-0 justify-content-center">
+        <div class="hero-static col-lg-6 col-xl-4">
+            <div class="content content-full overflow-hidden">
+                <!-- Header -->
+                <div class="py-30 text-center">
+                    <h1 class="h4 font-w700 mt-30 mb-10">Forgot your Password?</h1>
+                </div>
+                <!-- END Header -->
 
-		<div class="login-wrapper">
-			<div class="card-wrapper"></div>
-			<div class="card-wrapper">
-			<h1 class="title mb-0">Forgot Password?</h1>
-			<div class="footer mt-0">A recovery link will be sent to your email address</div><br><br>
-			<form action="<?= base_url('auth/forgot_password');?>" method="post" id="login-form">
-
-				<div class="input-container">
-					<input type="text" name="email"/>
-					<label for="password">Email</label>
-					<div class="bar"></div>
-				</div>
-				<div class="button-container">
-				<button type="submit" class="btn btn-lg btn-block waves-effect waves-light" name="btn-login">Submit</button>
-				</div>
-
-			</form>
-			</div>
-		</div>
-
-	</div>
-</section>
+                <!-- Sign In Form -->
+                <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _es6/pages/op_auth_signin.js -->
+                <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                <form class="js-validation-signin" action="forgot_password" method="post">
+                    <div class="block block-themed block-rounded block-shadow">
+                        <div class="block-header bg-gd-emerald">
+                            <h3 class="block-title">You will receive a recovery email</h3>
+                            <div class="block-options">
+                                <button type="button" class="btn-block-option">
+                                    <i class="si si-wrench"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="block-content">
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <label for="login-username">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-sm-6 text-sm push pull-left">
+                                    <button type="submit" class="btn btn-alt-success">
+                                        <i class="si si-login mr-10"></i> Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-content bg-body-light">
+                            <div class="form-group text-center">
+                                <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="op_auth_reminder3.php">
+                                    <i class="fa fa-warning mr-5"></i> Remember your Password?
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END Sign In Form -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Page Content -->

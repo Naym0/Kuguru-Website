@@ -1,10 +1,14 @@
+<?php 
+	if($this->session->flashdata('msg') !== NULL){
+		echo $this->session->flashdata('msg')['content'];
+	}
+?>
+<?= validation_errors('<div class="alert alert-danger" >', '</div>');?>
+
+<!-- Page Content -->
+<div class="content">
 <section class="section gray-bg">
           <div class="container mt-30 table-responsive">
-          <a href=<?= base_url('auth/logout');?> class="pull-right"> Logout ||</a>
-          <a href=<?= base_url('auth/create_account');?> class="pull-right">|| Add Admins ||</a>
-
-
-
             <h2>ORDERS RECEIVED</h2>
 
             <table class="table table-hover table-bordered" id="table">
@@ -46,3 +50,6 @@
 
           </div>
         </section>          
+
+</div>
+<!-- END Page Content -->

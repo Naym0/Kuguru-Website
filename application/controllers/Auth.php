@@ -7,6 +7,10 @@ class Auth extends CI_Controller
 	{
 		if ($this->form_validation->run('login') == FALSE) {
 			$data = array(
+				'cb' => new Template('KFCL', '1.0', base_url('assets')),
+				// 'page_config' => true,
+				'js_plugins' => ['js/plugins/jquery-validation/jquery.validate.min.js'],
+				'page_js' => 'js/pages/op_auth_signin.min.js',
 				'content' => 'auth/login'
 			);
 			$this->load->view($this->layout, $data);
@@ -32,6 +36,10 @@ class Auth extends CI_Controller
 	{
 		if ($this->form_validation->run('register') == FALSE) {
 			$data = array(
+				'cb' => new Template('KFCL', '1.0', base_url('assets')),
+				'page_config' => true,
+				'js_plugins' => ['js/plugins/jquery-validation/jquery.validate.min.js'],
+				'page_js' => 'js/pages/op_auth_signin.min.js',
 				'content' => 'dashboard/add_users'
 			);
 			$this->load->view($this->layout, $data);
@@ -98,6 +106,10 @@ class Auth extends CI_Controller
 			if ($this->form_validation->run('reset_password') == FALSE) {
 				//? show form
 				$data = array(
+					'cb' => new Template('KFCL', '1.0', base_url('assets')),
+					'page_config' => false,
+					'js_plugins' => ['js/plugins/jquery-validation/jquery.validate.min.js'],
+					'page_js' => 'js/pages/op_auth_signin.min.js',
 					'content' => 'auth/reset_password'
 				);
 				$this->load->view($this->layout, $data);
@@ -121,6 +133,10 @@ class Auth extends CI_Controller
 	{
 		if ($this->form_validation->run('forgot_password') == FALSE) {
 			$data = array(
+				'cb' => new Template('KFCL', '1.0', base_url('assets')),
+				'page_config' => false,
+				'js_plugins' => ['js/plugins/jquery-validation/jquery.validate.min.js'],
+				'page_js' => 'js/pages/op_auth_signin.min.js',
 				'content' => 'auth/forgot_password'
 			);
 			$this->load->view($this->layout, $data);
