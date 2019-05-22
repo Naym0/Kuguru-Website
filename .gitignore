@@ -56,3 +56,4 @@ vendor/
 .env
 
 .editorconfig
+.htaccess
