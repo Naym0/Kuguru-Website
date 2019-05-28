@@ -20,7 +20,7 @@
                 <!-- Sign In Form -->
                 <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _es6/pages/op_auth_signin.js -->
                 <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                <form class="js-validation-signin" action="login" method="post">
+                <form class="js-validation-signin" action="<?= base_url('auth/login');?>" method="post">
                     <div class="block block-themed block-rounded block-shadow">
                         <div class="block-header bg-gd-emerald">
                             <h3 class="block-title">Please Sign In</h3>
