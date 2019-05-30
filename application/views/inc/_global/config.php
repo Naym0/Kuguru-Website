@@ -24,7 +24,7 @@
 // **************************************************************************************************
 
 //                              : The data is added in the <head> section of the page
-$cb->author                     = 'pixelcave';
+$cb->author                     = '';
 $cb->robots                     = 'noindex, nofollow';
 $cb->title                      = 'Kuguru Food Complex Limited';
 $cb->description                = '';
@@ -146,7 +146,7 @@ $cb->l_m_content                = 'boxed';
 
 // It will get compared with the url of each menu link to make the link active and set up main menu accordingly
 // If you are using query strings to load different pages, you can use the following value: basename($_SERVER['REQUEST_URI'])
-$cb->main_nav_active            = basename($_SERVER['REQUEST_URI']);
+$cb->main_nav_active            = base_url(basename($_SERVER['REQUEST_URI']));
 
 // You can use the following array to create your main menu
 $cb->main_nav                   = array();

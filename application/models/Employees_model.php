@@ -7,30 +7,30 @@ class Employees_model extends CI_Model {
 		return $inserted ? $this->db->insert_id() : false;
 	}
 	//?get_all
-	function get_all() {
+	function get_all($filter_by_active = false) {
 		$this->join_aliases();		
-		$this->db->where('tbl_locationemployees.active', TRUE);
+		if ($filter_by_active) $this->db->where('tbl_locationemployees.active', TRUE);
 		return $this->db->get('tbl_employees')->result_array();
 	}
 	//? get_all by location
-	function get_all_by_location($location_id) {
+	function get_all_by_location($location_id, $filter_by_active = false) {
 		$this->join_aliases();
 		$this->db->where('tbl_locationemployees.location_id', $location_id);
-		$this->db->where('tbl_locationemployees.active', TRUE);
+		if ($filter_by_active) $this->db->where('tbl_locationemployees.active', TRUE);
 		return $this->db->get('tbl_employees')->result_array();
 	}
 	//?get_by_employee_id
-	function get_by_employee_id($employee_id) {
+	function get_by_employee_id($employee_id, $filter_by_active = false) {
 		$this->join_aliases();
 		$this->db->where('employee_id', $employee_id);
-		$this->db->where('tbl_locationemployees.active', TRUE);
+		if ($filter_by_active) $this->db->where('tbl_locationemployees.active', TRUE);
 		return $this->db->get('tbl_employees')->row_array();
 	}
 	//?get_by_user_id
-	function get_by_user_id($user_id) {
+	function get_by_user_id($user_id, $filter_by_active = false) {
 		$this->join_aliases();
 		$this->db->where('tbl_employees.user_id', $user_id);
-		$this->db->where('tbl_locationemployees.active', TRUE);
+		if ($filter_by_active) $this->db->where('tbl_locationemployees.active', TRUE);
 		return $this->db->get('tbl_employees')->row_array();
 	}
 	//?update
@@ -48,9 +48,15 @@ class Employees_model extends CI_Model {
 		$location_aliases = array(
 			'tbl_locations.location_name',
 			'tbl_locations.phone_number AS location_phone_number',
-			'tbl_location.email AS location_email'
+			'tbl_locations.email AS location_email'
 		);
-		$this->db->select('tbl_employees.*, users.email AS employee_email, tbl_locationemployees.*'.
+		//? employee table 
+		$employee_aliases = array(
+			'tbl_employees.*',
+			'CONCAT(tbl_employees.first_name, " ", tbl_employees.last_name) AS full_name'
+		);
+
+		$this->db->select(implode(", ", $employee_aliases).', users.email AS employee_email, tbl_locationemployees.*,'.
 		implode(", ", $location_aliases));
 		$this->db->join('users','users.user_id = tbl_employees.user_id');
 		$this->db->join('tbl_locationemployees', 'tbl_locationemployees.employee_id = tbl_employees.employee_id');

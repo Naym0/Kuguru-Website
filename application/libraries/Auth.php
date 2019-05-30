@@ -1,8 +1,13 @@
 <?php defined('BASEPATH') or die('No direct script access allowed');
 
-class Auth extends CI_Controller
+class Auth
 {
 	var $layout = 'template/template';
+	var $CI;
+	function __construct($params)
+	{
+		$this->CI = $params[0];
+	}
 	function login()
 	{
 		if ($this->form_validation->run('login') == FALSE) {
@@ -22,9 +27,6 @@ class Auth extends CI_Controller
 				if (empty($user)) throw new \Exception("Incorrect creditials");
 				$valid_password = password_verify($password, $user['password']);
 				if (!$valid_password) throw new \Exception("Incorrect creditials");
-				//? Update last access
-				$this->users_model->update_user(array('last_access' => $this->time->get_now()), $user['user_id']);
-				
 				$user['logged_in'] = TRUE;
 				$this->session->set_userdata($user);
 				redirect(base_url('dashboard/index'));
@@ -59,7 +61,7 @@ class Auth extends CI_Controller
 			$subject = 'Account registration';
 			$email_data = array(
 				'subject' => $subject,
-				'reset_url' => base_url('auth/reset_password/' . $token_id.'/verify'),
+				'reset_url' => base_url('auth/reset_password/' . $token_id),
 				'name' => $to['name']
 			);
 			$body = $this->load->view('emails/registration', $email_data, true);
@@ -94,17 +96,14 @@ class Auth extends CI_Controller
 					'js_plugins' => ['js/plugins/jquery-validation/jquery.validate.min.js'],
 					'page_js' => 'js/pages/op_auth_signin.min.js',
 					'content' => 'auth/reset_password',
-					'token_id' => $token_id,
-					'reset_password_url' => $verification === 'verify' ?
-						base_url('auth/reset_password/'.$token_id.'/verify') : 
-						base_url('auth/reset_password/'.$token_id) 
+					'token_id' => $token_id
 				);
 				$this->load->view($this->layout, $data);
 			} else {
 				$update_data = array(
 					'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
 				);
-				if ($verification === 'verify') $update_data['verified'] = TRUE;
+				if ($verification) $update_data['verified'] = TRUE;
 				$updated = $this->users_model->update_user($update_data, $token['user_id']);
 				if (!$updated) throw new \Exception("Could not update password");
 				$this->tokens_model->invalidate_token($token['token_id']);

@@ -35,3 +35,9 @@
     webpack is putting everything together at assets/_es6/main/app.js
 -->
 <script src="<?php echo $cb->assets_folder; ?>/js/codebase.app.min.js"></script>
+<!-- Global app js -->
+<script src="<?php echo $cb->assets_folder; ?>/js/app.global.js"></script>
+<script>
+	const baseURL = '<?= base_url();?>';
+	const assetsURL = '<?= $cb->assets_folder;?>';
+</script>

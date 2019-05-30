@@ -7,6 +7,12 @@ class Users_model extends CI_Model
 		return $this->db->get('users')->result_array();
 	}
 
+	function get_all_by_type($usertype)
+	{ 
+		$this->db->where('user_type',$usertype);
+		return $this->db->get('users')->result_array();
+	}
+
 	function get_user_by_id($user_id)
 	{
 		$this->db->where('user_id', $user_id);

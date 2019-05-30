@@ -58,6 +58,26 @@ $config = array(
 			'label' => 'Email',
 			'rules' => 'required|valid_email'
 		)
+	),
+	'register_admin' => array(
+		array(
+			'field' => 'email',
+			'label' => 'Email',
+			'rules' => 'required|valid_email|is_unique[users.email]',
+			'errors' => array(
+				'is_unique' => 'Email is already registered'
+			)
+		)
+	),
+	'register_employee' => array(
+		array(
+			'field' => 'email',
+			'label' => 'Email',
+			'rules' => 'required|valid_email|is_unique[users.email]',
+			'errors' => array(
+				'is_unique' => 'Email is already registered'
+			)
+		)
 	)
 
 );

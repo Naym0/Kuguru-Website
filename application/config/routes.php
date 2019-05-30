@@ -53,4 +53,7 @@ $route['default_controller'] = 'auth/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['dashboard/add_users'] = 'auth/create_account';
+// ?Dashboard routes
+$route['employees'] = 'dashboard/employees';
+$route['system_admins'] = 'admin/system_admins';
+$route['locations']= 'dashboard/locations'; 
