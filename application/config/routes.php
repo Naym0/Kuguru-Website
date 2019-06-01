@@ -56,4 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 // ?Dashboard routes
 $route['employees'] = 'dashboard/employees';
 $route['system_admins'] = 'admin/system_admins';
-$route['locations']= 'dashboard/locations'; 
+$route['locations']= 'dashboard/locations';
+$route['orders'] = 'employee/orders';

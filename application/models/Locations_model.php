@@ -7,12 +7,18 @@ class Locations_model extends CI_Model {
 		return $inserted ? $this->db->insert_id() : false;
 	}
 	//? get_all
-	function get_all() {
+	function get_all($active_only = false) {
+		if ($active_only) $this->db->where('suspended', false);
 		return $this->db->get('tbl_locations')->result_array();
 	}
 	//? get by location id
 	function get_by_id($location_id) {
 		$this->db->where('location_id', $location_id);
+		return $this->db->get('tbl_locations')->row_array();
+	}
+	//? get by location name
+	function get_by_name($location_name) {
+		$this->db->where('location_name', $location_name);
 		return $this->db->get('tbl_locations')->row_array();
 	}
 	//? get by phone number
@@ -30,8 +36,8 @@ class Locations_model extends CI_Model {
 		$this->db->where('location_id', $location_id);
 		return $this->db->update('tbl_locations', $data);
 	}
-	//? delete (suspend)
+	//? delete
 	function delete($location_id) {
-		return $this->update(array('suspended' => true), $location_id);
+		return $this->db->delete('tbl_locations',array('location_id'=> $location_id));
 	}
 }

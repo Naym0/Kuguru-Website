@@ -56,7 +56,7 @@ class Employees_model extends CI_Model {
 			'CONCAT(tbl_employees.first_name, " ", tbl_employees.last_name) AS full_name'
 		);
 
-		$this->db->select(implode(", ", $employee_aliases).', users.email AS employee_email, tbl_locationemployees.*,'.
+		$this->db->select(implode(", ", $employee_aliases).', tbl_locationemployees.locationemployees_id, users.email , users.suspended, tbl_locationemployees.*,'.
 		implode(", ", $location_aliases));
 		$this->db->join('users','users.user_id = tbl_employees.user_id');
 		$this->db->join('tbl_locationemployees', 'tbl_locationemployees.employee_id = tbl_employees.employee_id');

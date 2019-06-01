@@ -78,6 +78,35 @@ $config = array(
 				'is_unique' => 'Email is already registered'
 			)
 		)
+	),
+	'add_location' => array(
+		array(
+			'field' => 'email',
+			'label' => 'Email',
+			'rules' => 'required|valid_email|is_unique[tbl_locations.email]',
+			'errors' => array(
+				'is_unique' => 'Email is already registered'
+			)
+		),
+		array(
+			'field' => 'phone_number',
+			'label' => 'Cell contact',
+			'rules' => 'required|regex_match[/^07[0-9]{8}$/]|exact_length[10]|is_unique[tbl_locations.phone_number]',
+			'errors' => array(
+				'is_unique' => 'Cell contact is already registered',
+				'regex_match' => 'Invalid cell contact provided'
+			)
+		)
+	),
+	'edit_location' => array(
+		array(
+			'field' => 'phone_number',
+			'label' => 'Cell contact',
+			'rules' => 'required|regex_match[/^07[0-9]{8}$/]|exact_length[10]',
+			'errors' => array(
+				'is_unique' => 'Cell contact is already registered',
+				'regex_match' => 'Invalid cell contact provided'
+			)
+		)
 	)
-
 );

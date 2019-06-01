@@ -8,7 +8,7 @@ class Locationemployees_model extends CI_Model {
 	}
 	//?update
 	function update($data, $locationemployee_id) {
-		$this->db->where('locationemployee_id', $locationemployee_id);
+		$this->db->where('locationemployees_id', $locationemployee_id);
 		return $this->db->update('tbl_locationemployees',$data);
 	}
 }
