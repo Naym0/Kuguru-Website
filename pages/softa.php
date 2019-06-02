@@ -87,7 +87,7 @@
               <h2 class="text-bold text-uppercase no-margin">Make use of our <span class="brand-color">large distribution network</span> and be part of the success</h2>
           </div>
           <div class="promo-btn">
-              <a href="<?= BASE_URL?>/pages/orders.php" class="btn white waves-effect waves-grey">ORDER NOW</a>
+              <a href="<?= ORDER_BASEURL?>/customer" target='_blank' class="btn white waves-effect waves-grey">ORDER NOW</a>
           </div>
       </div>
     </div>
