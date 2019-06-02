@@ -20,14 +20,26 @@ class Auth extends CI_Controller
 			try {
 				$user = $this->users_model->get_user_by_email($email);
 				if (empty($user)) throw new \Exception("Incorrect creditials");
+				if (!$user['verified']) redirect(base_url('auth/login'));
+
 				$valid_password = password_verify($password, $user['password']);
 				if (!$valid_password) throw new \Exception("Incorrect creditials");
+				
 				//? Update last access
 				$this->users_model->update_user(array('last_access' => $this->time->get_now()), $user['user_id']);
 				
 				$user['logged_in'] = TRUE;
 				$this->session->set_userdata($user);
-				redirect(base_url('dashboard/index'));
+
+				switch ($user['user_type']) {
+					case 'admin':
+					case 'employee':
+						redirect(base_url('dashboard/index'));
+						break;
+					case 'customer':
+						redirect(base_url('customer'));
+						break;
+				}
 			} catch (\Throwable $th) {
 				$this->session->set_flashdata('msg', ['type' => 'danger', 'content' => $th->getMessage()]);
 				redirect(base_url('auth/login'));

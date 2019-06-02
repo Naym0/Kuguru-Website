@@ -21,35 +21,61 @@ $cb->inc_footer                 = 'inc/backend/views/inc_footer.php';
 // **************************************************************************************************
 // MAIN MENU
 // **************************************************************************************************
-
-$cb->main_nav                   = array(
-	array(
-		'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
-		'icon'  => 'si si-home',
-		'url'   => base_url('dashboard')
-	),
-	array(
-		'name'  => '<span class="sidebar-mini-hide">Orders</span>',
-		'icon'  => 'si si-basket',
-		'url'   => base_url('orders')
-	),
-	array(
-		'name'  => '<span class="sidebar-mini-hide">Locations</span>',
-		'icon'  => 'si si-map',
-		'url'   => base_url('locations')
-	),
-	array(
-		'name'  => '<span class="sidebar-mini-hide">USER MANAGEMENT</span>',
-		'type'  => 'heading',
-	),
-	array(
-		'name'  => '<span class="sidebar-mini-hide">Employees</span>',
-		'icon'  => 'si si-users',
-		'url'   => base_url('employees')
-	),
-	array(
-		'name'  => '<span class="sidebar-mini-hide">System admins</span>',
-		'icon'  => 'si si-users',
-		'url'   => base_url('system_admins')
-	)
-);
+switch ($this->session->userdata('user_type')) {
+	case 'admin':
+		$cb->main_nav                   = array(
+			array(
+				'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
+				'icon'  => 'si si-home',
+				'url'   => base_url('dashboard')
+			),
+			array(
+				'name'  => '<span class="sidebar-mini-hide">Locations</span>',
+				'icon'  => 'si si-map',
+				'url'   => base_url('locations')
+			),
+			array(
+				'name'  => '<span class="sidebar-mini-hide">USER MANAGEMENT</span>',
+				'type'  => 'heading',
+			),
+			array(
+				'name'  => '<span class="sidebar-mini-hide">Employees</span>',
+				'icon'  => 'si si-users',
+				'url'   => base_url('employees')
+			),
+			array(
+				'name'  => '<span class="sidebar-mini-hide">System admins</span>',
+				'icon'  => 'si si-users',
+				'url'   => base_url('system_admins')
+			)
+		);
+		break;
+	case 'employee':
+		$cb->main_nav                   = array(
+			array(
+				'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
+				'icon'  => 'si si-home',
+				'url'   => base_url('dashboard')
+			),
+			array(
+				'name'  => '<span class="sidebar-mini-hide">Orders</span>',
+				'icon'  => 'si si-basket',
+				'url'   => base_url('orders')
+			)
+		);
+		break;
+	case 'customer':
+		$cb->main_nav                   = array(
+			array(
+				'name'  => '<span class="sidebar-mini-hide">My Orders</span>',
+				'icon'  => 'fa fa-list-alt',
+				'url'   => base_url('customer')
+			),
+			array(
+				'name'  => '<span class="sidebar-mini-hide">New Order</span>',
+				'icon'  => 'fa fa-cart-plus',
+				'url'   => base_url('new_order')
+			)
+		);
+		break;
+}

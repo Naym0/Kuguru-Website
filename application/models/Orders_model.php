@@ -44,24 +44,25 @@ class Orders_model extends CI_Model {
 	function joins_aliases() {
 		//? employees
 		$employee_aliases = array(
+			'tbl_employees.last_name as employee_last_name',
 			'CONCAT(tbl_employees.first_name, " ", tbl_employees.last_name ) as employee_fullname'
 		);
 		//? locations
 		$location_aliases = array(
 			'tbl_locations.location_name',
 			'tbl_locations.phone_number AS location_phone_number',
-			'tbl_location.email AS location_email'
+			'tbl_locations.email AS location_email'
 		);
 		//? users
 		$users_aliases = array(
 			'users.email as customer_email',
 		);
 
-		$this->db->select("tbl_orders.*, ".
+		$this->db->select("tbl_orders.*, CONCAT('ORDER-',tbl_orders.order_id) AS order_id_title, ".
 		implode(", ",$employee_aliases).", ".
 		implode(", ", $location_aliases).", ".
 		implode(", ", $users_aliases));
-		$this->db->join('tbl_employees', 'tbl_employees.employee_id = tbl_oders.processed_by');
+		$this->db->join('tbl_employees', 'tbl_employees.employee_id = tbl_orders.processed_by', 'left');
 		$this->db->join('tbl_locations', 'tbl_locations.location_id = tbl_orders.pickup_location');
 		$this->db->join('users','users.user_id = tbl_orders.customer_id');
 	}

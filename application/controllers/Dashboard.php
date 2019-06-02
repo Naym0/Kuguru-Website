@@ -22,12 +22,6 @@ class Dashboard extends CI_Controller
 		$this->load->view($this->layout, $data);
 	}
 
-	function test()
-	{
-		$date = date_create("03-Jan-2019");
-		echo date_format($date, "Y/m/d");
-	}
-
 	function employees()
 	{
 		$data = array(
@@ -38,7 +32,7 @@ class Dashboard extends CI_Controller
 				'js/plugins/datatables/dataTables.bootstrap4.min.js',
 				'js/plugins/jquery-validation/jquery.validate.min.js',
 				'js/plugins/sweetalert2/sweetalert2.min.js',
-				'js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'
+				'js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
 			],
 			'js_plugins_css' => [
 				'js/plugins/datatables/dataTables.bootstrap4.css',
@@ -189,13 +183,11 @@ class Dashboard extends CI_Controller
 				'js/plugins/datatables/dataTables.bootstrap4.min.js',
 				'js/plugins/jquery-validation/jquery.validate.min.js',
 				'js/plugins/sweetalert2/sweetalert2.min.js',
-				'js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
 				'js/plugins/masked-inputs/jquery.maskedinput.min.js'
 			],
 			'js_plugins_css' => [
 				'js/plugins/datatables/dataTables.bootstrap4.css',
-				'js/plugins/sweetalert2/sweetalert2.min.css',
-				'js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
+				'js/plugins/sweetalert2/sweetalert2.min.css'
 			],
 			'page_js' => 'js/pages/locations.js',
 			'content' => 'dashboard/locations',

@@ -58,3 +58,7 @@ $route['employees'] = 'dashboard/employees';
 $route['system_admins'] = 'admin/system_admins';
 $route['locations']= 'dashboard/locations';
 $route['orders'] = 'employee/orders';
+
+// ?Customer routes
+$route['create_account'] = 'customer/create_account';
+$route['new_order'] = 'customer/new_order';

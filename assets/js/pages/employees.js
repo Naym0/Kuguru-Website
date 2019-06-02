@@ -28,7 +28,7 @@ $(document).ready(() => {
 	// ? set to date constraint
 	$('input[name=from_date]').on('change', event => {
 		const _this = $(event.target);
-		$('input[name=to_date]').datepicker(
+		$('input[name=end_date]').datepicker(
 			'setStartDate',
 			_this.datepicker('getDate')
 		);

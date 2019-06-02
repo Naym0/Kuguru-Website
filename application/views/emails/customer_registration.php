@@ -797,14 +797,14 @@
 
 															<td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-																An account has been created for you at Kuguru Food Complex Company order management dashboard. If you did not authorise this account creation, ignore this email.<br>
+																Welcome to the Kuguru Foods Complex Limited ordering system.<br>
 																<br>
-																To access your account, follow this link to set up your password.<br>
-																<a href="<?= $reset_url; ?>">Set up password</a> <br/>
+																To access your account, follow this link for verification.<br>
+																<a href="<?= $verification_url; ?>">Verify account</a> <br/>
 																If the link doesn't work, paste this link in your browser: &nbsp;
 
 																<blockquote>
-																	<?= $reset_url;?></blockquote>
+																	<?= $verification_url;?></blockquote>
 
 															</td>
 														</tr>

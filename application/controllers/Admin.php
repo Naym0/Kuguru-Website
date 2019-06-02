@@ -57,7 +57,7 @@ class Admin extends CI_Controller
 			$subject = 'Account registration';
 			$email_data = array(
 				'subject' => $subject,
-				'reset_url' => base_url('auth/reset_password/' . $token_id.'/verify'),
+				'reset_url' => base_url('auth/reset_password/' . $token_id . '/verify'),
 				'name' => $to['name']
 			);
 			$body = $this->load->view('emails/registration', $email_data, true);
@@ -112,18 +112,22 @@ class Admin extends CI_Controller
 	{
 		$admins = $this->users_model->get_all_by_type('admin');
 		foreach ($admins as $key => $admin) {
-			$admins[$key]['actions'] = !$admin['suspended'] ?
-				'<div class="btn-group" role="group" aria-label="Edit delete actions">
-				<button type="button" class="btn btn-secondary btn-suspend" title="Suspend">
-					<i class="si si-ban"></i> Suspend
+			if ($admin['user_id'] === $this->session->userdata('user_id')) {
+				unset($admins[$key]);
+			} else {
+				$admins[$key]['actions'] = !$admin['suspended'] ?
+					'<div class="btn-group" role="group" aria-label="Edit delete actions">
+					<button type="button" class="btn btn-secondary btn-suspend" title="Suspend">
+						<i class="si si-ban"></i> Suspend
+					</button>
+				</div>' : '<div class="btn-group" role="group" aria-label="Edit delete actions">
+				<button type="button" class="btn btn-alt-success btn-unsuspend" title="Unsuspend">
+					<i class="si si-magic-wand"></i> Unsuspend
 				</button>
-			</div>' : '<div class="btn-group" role="group" aria-label="Edit delete actions">
-			<button type="button" class="btn btn-alt-success btn-unsuspend" title="Unsuspend">
-				<i class="si si-magic-wand"></i> Unsuspend
-			</button>
-		</div>';
-			$admins[$key]['status'] = $admin['suspended'] ? 'Suspended' : 'Active';
-			$admins[$key]['verified'] = $admin['verified'] ? 'Yes' : 'No';
+			</div>';
+				$admins[$key]['status'] = $admin['suspended'] ? 'Suspended' : 'Active';
+				$admins[$key]['verified'] = $admin['verified'] ? 'Yes' : 'No';
+			}
 		}
 		echo json_encode($admins);
 	}

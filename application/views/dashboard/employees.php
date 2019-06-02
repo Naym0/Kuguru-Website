@@ -140,7 +140,7 @@
 							</div>
 							<div class="form-group col-md-6">
 								<label>To date</label>
-								<input type="text" onkeypress="return false;" autocomplete="off" placeholder="dd-MM-yyy" data-date-start-date="<?= $this->time->get_now('Y-m-d'); ?>" name="end_date" class="form-control end_date datepicker" required>
+								<input type="text" onkeypress="return false;" autocomplete="off" placeholder="dd-MM-yyy" name="end_date" class="form-control end_date datepicker" required>
 							</div>
 						</div>
 					</div>
