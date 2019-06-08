@@ -2,7 +2,7 @@
 <div class="content">
 	<div class="block block-bordered" id="add-location-block">
 		<div class="block-header block-header-default">
-			<h3 class="block-title">Add new employee</h3>
+			<h3 class="block-title">Add new location</h3>
 			<div class="block-options">
 				<button type="button" title="Toggle content" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
 			</div>

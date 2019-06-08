@@ -4,6 +4,16 @@ class Admin extends CI_Controller
 {
 	var $layout = 'template/template';
 
+	function __construct()
+	{
+		parent::__construct();
+		if (
+			!isset($_SESSION['logged_in'])
+			|| !empty($this->session->userdata('user_type'))
+			&& !in_array($this->session->userdata('user_type'), ['employee', 'admin'])
+		) redirect(base_url('auth/logout'));
+	}
+
 	function system_admins()
 	{
 		$data = array(

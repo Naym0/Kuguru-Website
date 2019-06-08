@@ -3,6 +3,12 @@
 class Auth extends CI_Controller
 {
 	var $layout = 'template/template';
+
+	function __construct()
+	{
+		parent::__construct();
+		if(isset($_SESSION['logged_in'])) $this->logout();
+	}
 	function login()
 	{
 		if ($this->form_validation->run('login') == FALSE) {
@@ -20,7 +26,9 @@ class Auth extends CI_Controller
 			try {
 				$user = $this->users_model->get_user_by_email($email);
 				if (empty($user)) throw new \Exception("Incorrect creditials");
-				if (!$user['verified']) redirect(base_url('auth/login'));
+				if (!$user['verified']) throw new \Exception("You need to verify you account");
+				if($user['suspended']) throw new \Exception("Access has been revoked");
+				
 
 				$valid_password = password_verify($password, $user['password']);
 				if (!$valid_password) throw new \Exception("Incorrect creditials");
@@ -30,16 +38,7 @@ class Auth extends CI_Controller
 				
 				$user['logged_in'] = TRUE;
 				$this->session->set_userdata($user);
-
-				switch ($user['user_type']) {
-					case 'admin':
-					case 'employee':
-						redirect(base_url('dashboard/index'));
-						break;
-					case 'customer':
-						redirect(base_url('customer'));
-						break;
-				}
+				redirect_user($user['user_type']);
 			} catch (\Throwable $th) {
 				$this->session->set_flashdata('msg', ['type' => 'danger', 'content' => $th->getMessage()]);
 				redirect(base_url('auth/login'));

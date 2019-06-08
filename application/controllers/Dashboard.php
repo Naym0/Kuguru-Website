@@ -7,7 +7,11 @@ class Dashboard extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		if (!isset($_SESSION['logged_in'])) redirect(base_url('auth/logout'));
+		if (
+			!isset($_SESSION['logged_in'])
+			|| isset($_SESSION['logged_in'])
+			&& !in_array($this->session->userdata('user_type'), ['employee', 'admin'])
+		) redirect(base_url('auth/logout'));
 	}
 
 	function index()
@@ -50,7 +54,7 @@ class Dashboard extends CI_Controller
 	{
 		$employees = $this->employees_model->get_all();
 		foreach ($employees as $key => $employee) {
-			$employees[$key]['actions'] = get_action_html();
+			$employees[$key]['actions'] = $employee['suspended'] ? get_action_unsuspend_html() : get_action_suspend_html();
 			$employees[$key]['status'] = $employee['suspended'] ? 'Suspended' : 'Active';
 		}
 		echo json_encode($employees);
@@ -170,7 +174,31 @@ class Dashboard extends CI_Controller
 		echo json_encode($res);
 	}
 
-	//TODO: suspend employee
+	//? suspend employee
+	function suspend_employee() {
+		$res = array();
+		try {
+			$user_id =  $this->input->post('user_id');
+			if (!$this->users_model->update_user(array('suspended' => true), $user_id)) throw new \Exception("Could not suspend employee");
+			$res = array('ok' => true, 'msg' => 'Employee suspended');
+		} catch (\Throwable $th) {
+			$res = array('ok' => false, 'msg' => $th->getMessage());
+		}
+		echo json_encode($res);
+	}
+
+	//? unsuspend employee
+	function unsuspend_employee() {
+		$res = array();
+		try {
+			$user_id =  $this->input->post('user_id');
+			if (!$this->users_model->update_user(array('suspended' => false), $user_id)) throw new \Exception("Could not unsuspend employee");
+			$res = array('ok' => true, 'msg' => 'Employee unsuspended');
+		} catch (\Throwable $th) {
+			$res = array('ok' => false, 'msg' => $th->getMessage());
+		}
+		echo json_encode($res);
+	}
 
 	//? view locations
 	function locations()

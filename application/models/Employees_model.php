@@ -38,10 +38,6 @@ class Employees_model extends CI_Model {
 		$this->db->where('employee_id', $employee_id);
 		return $this->db->update('tbl_employees', $data);
 	}
-	//?suspend
-	function suspend($employee_id) {
-		return $this->update(array('suspended'=> true), $employee_id);
-	}
 
 	function join_aliases() {
 		//? locations

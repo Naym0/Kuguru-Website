@@ -6,6 +6,10 @@ class Customer extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		if (
+			isset($_SESSION['logged_in'])
+			&& $this->session->userdata('user_type') != 'customer'
+		) redirect(base_url('auth/logout'));
 	}
 
 	function index()
@@ -162,8 +166,24 @@ class Customer extends CI_Controller
 		$user_id = $this->session->userdata('user_id');
 		$orders = $this->orders_model->get_by_customer_id($user_id);
 		foreach ($orders as $key => $order) {
-			$orders[$key]['actions'] = get_dropdown_action_html();
+			$orders[$key]['actions'] = $order['status'] == 'pending' ? get_customer_order_action_html() : get_customer_viewonly_action_html();
+			$orders[$key]['employee_last_name'] = $order['employee_last_name'] ? $order['employee_last_name'] : 'N/A';
+			$orders[$key]['processed_at'] = $order['processed_at'] ? $order['processed_at'] : 'N/A';
 		}
 		echo json_encode($orders);
+	}
+
+	function cancel_order()
+	{
+		if (!isset($_SESSION['logged_in'])) redirect(base_url('auth/logout'));
+		$res = array();
+		try {
+			$order_id = $this->input->post('order_id');
+			if (!$this->orders_model->update(['status' => 'user cancelled', 'processed_at' => $this->time->get_now()], $order_id)) throw new \Exception("Error Processing Request");
+			$res = ['ok' => true, 'msg' => 'ORDER-'.$order_id.' has been cancelled'];
+		} catch (\Throwable $th) {
+			$res = ['ok' => false, 'msg' => $th->getMessage()];
+		}
+		echo json_encode($res);
 	}
 }
