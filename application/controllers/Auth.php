@@ -35,7 +35,10 @@ class Auth extends CI_Controller
 				
 				//? Update last access
 				$this->users_model->update_user(array('last_access' => $this->time->get_now()), $user['user_id']);
-				
+				//? check if employee
+				if($user['user_type'] === 'employee'){
+					$user['employee_details'] = $this->employees_model->get_by_user_id($user['user_id']);
+				}
 				$user['logged_in'] = TRUE;
 				$this->session->set_userdata($user);
 				redirect_user($user['user_type']);

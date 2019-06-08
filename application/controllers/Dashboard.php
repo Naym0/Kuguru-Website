@@ -19,9 +19,15 @@ class Dashboard extends CI_Controller
 		$data = array(
 			'cb' => new Template('KFCL', '1.0', base_url('assets')),
 			'page_config' => true,
-			'js_plugins' => ['js/plugins/jquery-validation/jquery.validate.min.js'],
-			'page_js' => 'js/pages/op_auth_signin.min.js',
-			'content' => 'dashboard/home'
+			'js_plugins' => [
+				'js/plugins/chartjs/Chart.bundle.min.js',
+				'js/plugins/slick/slick.min.js'
+			],
+			'page_js' => 'js/pages/dashboard_home.js',
+			'content' => 'dashboard/home',
+			'location_stats' => $this->locations_model->location_stats(),
+			'user_stats' => $this->users_model->user_stats(),
+			'order_stats' => $this->orders_model->orders_stats()
 		);
 		$this->load->view($this->layout, $data);
 	}

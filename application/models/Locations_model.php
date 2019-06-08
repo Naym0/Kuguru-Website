@@ -40,4 +40,12 @@ class Locations_model extends CI_Model {
 	function delete($location_id) {
 		return $this->db->delete('tbl_locations',array('location_id'=> $location_id));
 	}
+
+	//? stats
+	function location_stats() {
+		return [
+			'all' => count($this->get_all()),
+			'active' =>count($this->get_all(true))
+		];
+	}
 }

@@ -108,3 +108,13 @@ function redirect_user($user_type)
 			break;
 	}
 }
+
+function with_default($array, $key, $default)
+{ 
+	return array_key_exists($key, $array) ? $array[$key] : $default; 
+}
+
+function get_day_of_week($day_number) {
+	$days = ['SUN','MON','TUE','WED','THUR','FRI','SAT'];
+	return $days[$day_number];
+}

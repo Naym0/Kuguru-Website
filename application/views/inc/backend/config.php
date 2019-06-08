@@ -51,18 +51,39 @@ switch ($this->session->userdata('user_type')) {
 		);
 		break;
 	case 'employee':
-		$cb->main_nav                   = array(
-			array(
-				'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
-				'icon'  => 'si si-home',
-				'url'   => base_url('dashboard')
-			),
-			array(
-				'name'  => '<span class="sidebar-mini-hide">Orders</span>',
-				'icon'  => 'si si-basket',
-				'url'   => base_url('orders')
-			)
-		);
+		$employee_role = $this->employees_model->get_by_user_id($this->session->userdata('user_id'))['role'];
+
+		if ($employee_role === 'location manager') {
+			$cb->main_nav                   = array(
+				array(
+					'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
+					'icon'  => 'si si-home',
+					'url'   => base_url('dashboard')
+				),
+				array(
+					'name'  => '<span class="sidebar-mini-hide">USER MANAGEMENT</span>',
+					'type'  => 'heading',
+				),
+				array(
+					'name'  => '<span class="sidebar-mini-hide">Employees</span>',
+					'icon'  => 'si si-users',
+					'url'   => base_url('employees')
+				)
+			);
+		} else {
+			$cb->main_nav                   = array(
+				array(
+					'name'  => '<span class="sidebar-mini-hide">Dashboard</span>',
+					'icon'  => 'si si-home',
+					'url'   => base_url('dashboard')
+				),
+				array(
+					'name'  => '<span class="sidebar-mini-hide">Orders</span>',
+					'icon'  => 'si si-basket',
+					'url'   => base_url('orders')
+				)
+			);
+		}
 		break;
 	case 'customer':
 		$cb->main_nav                   = array(
