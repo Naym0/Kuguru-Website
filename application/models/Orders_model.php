@@ -125,7 +125,7 @@ class Orders_model extends CI_Model
 	{ 
 		$this->db->select('DAYOFWEEK(`created_at`) as dayofweek, count(*) as total_orders',false);
 		$this->db->where('pickup_location', $location_id);
-		$this->db->where('WEEK(`created_at`)', 'WEEK(DATE_ADD(CURDATE(), INTERVAL - WEEKDAY(CURDATE()) DAY))',false);
+		$this->db->where('WEEK(`created_at`)', 'WEEK(CURDATE())',false);
 		$this->db->group_by('dayofweek');
 		$this->db->order_by('dayofweek', 'ASC');
 		$result = $this->db->get('tbl_orders')->result_array();
